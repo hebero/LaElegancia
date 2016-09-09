@@ -2,21 +2,45 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class ="container">
         <div class ="row">
-            <div class ="col-md-2 col-lg-2 col-xs-2"></div>
-            <div class ="col-md-6 col-lg-6 col-xs-6">
-                <div class="jumbotron">
-                    <h3>Nuevos productos</h3>
-                </div>
-            </div>
-            <div class ="col-md-2 col-lg-2 col-xs-2"></div>
+             <h1>Productos</h1>
         </div>
         <div class ="row">
-            <div class="col-md-2 col-lg-2 col-xs-2"></div>
-            <div class="col-md-6 col-lg-6 col-xs-6">
-                <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <div class="col-md-4 col-lg-4 col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Productos existentes</h4>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-2 col-lg-2 col-xs-2"></div>
+            <div class="col-md-4 col-lg-4 col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Modificacion de producto</h4>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xs-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Producto nuevo</h4>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <asp:GridView ID="GridView2" runat="server"></asp:GridView>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </asp:Content>
