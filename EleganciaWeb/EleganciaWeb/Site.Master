@@ -13,7 +13,9 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -68,6 +70,17 @@
         </div>
 
     </form>
-
+<script src="Scripts/jquery-ui-1.12.0.js"></script>
+    <script> 
+        $(document).ready(function () {
+            $("#txtDate").datepicker({ dateFormat: 'dd/mm/yy' });
+            $("#txtDate").datepicker();
+            //$("#txtDate").datepicker('setDate', new Date());
+            $("#txtDate").addClass('form-control').after();
+            //$("#txtDate").prop('disabled', true).after();
+            //$("#Date").datepicker("option", "disable", false);
+        });
+       
+    </script>
 </body>
 </html>

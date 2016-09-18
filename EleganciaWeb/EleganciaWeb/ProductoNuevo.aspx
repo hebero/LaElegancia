@@ -39,10 +39,18 @@
                             <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox></label>
                         <asp:Button ID="btnGuardar" runat="server" CssClass="btn btn-primary" Text="Guardar" OnClick="btnGuardar_Click" />
                         <asp:Label ID="lblAlerta" runat="server" Visible="false" Text=""></asp:Label>
+                        <asp:Button ID="Button1" runat="server" Text="Button" CssClass="btn btn-primary" ClientIDMode="Static"/>
                     </div>
                 </div>
             </div>
             &nbsp;&nbsp;&nbsp;
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Button1").click(function () {
+                alert("Alerta");
+            });
+        });
+    </script>
 </asp:Content>
