@@ -27,5 +27,29 @@ namespace EleganciaWeb
             }
             return dt;
         }
+        public void NuevaSucursal(string Nombre, string Direccion, string Conexion)
+        {
+            SqlConnection cn; SqlCommand cmd;
+            try
+            {
+                using(cn = new SqlConnection(Conexion))
+                {
+                    using(cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paNewBodega";
+                        cmd.Parameters.AddWithValue("@Nombre", SqlDbType.Char).Value = Nombre;
+                        cmd.Parameters.AddWithValue("@Direccion", SqlDbType.Char).Value = Direccion;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                    }
+                }
+            } 
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

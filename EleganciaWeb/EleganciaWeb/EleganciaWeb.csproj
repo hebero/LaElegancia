@@ -157,23 +157,25 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="NuevaBoleta.aspx" />
+    <Content Include="NuevaFactura.aspx" />
+    <Content Include="NuevaSucursal.aspx" />
+    <Content Include="ProductoNuevo.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="NuevaFactura.aspx" />
-    <Content Include="ProductoNuevo.aspx" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
@@ -238,6 +240,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BoletasDb.cs" />
     <Compile Include="ClienteDb.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -257,11 +260,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="NuevaBoleta.aspx.cs">
+      <DependentUpon>NuevaBoleta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaBoleta.aspx.designer.cs">
+      <DependentUpon>NuevaBoleta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NuevaFactura.aspx.cs">
       <DependentUpon>NuevaFactura.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuevaFactura.aspx.designer.cs">
       <DependentUpon>NuevaFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevaSucursal.aspx.cs">
+      <DependentUpon>NuevaSucursal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevaSucursal.aspx.designer.cs">
+      <DependentUpon>NuevaSucursal.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductoNuevo.aspx.cs">
       <DependentUpon>ProductoNuevo.aspx</DependentUpon>

@@ -90,6 +90,43 @@ namespace EleganciaWeb
             }
             return IdFactura;
         }
-        //public DataTable 
+        public DataTable NuevoDetalle(int Factura, int Producto, int Cantidad, decimal Precio, string Conexion)
+        {
+            SqlConnection cn; SqlCommand cmd, cmd2;
+            DataTable dt = new DataTable(); SqlParameter Detalle;
+            int IdDetalle = 0;
+            try
+            {
+                using(cn = new SqlConnection(Conexion))
+                {
+                    using(cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paNewFacturaDetalle";
+                        cmd.Parameters.AddWithValue("@IdFactura", SqlDbType.Int).Value = Factura;
+                        cmd.Parameters.AddWithValue("@IdProducto", SqlDbType.Int).Value = Producto;
+                        cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
+                        cmd.Parameters.AddWithValue("@Precio", SqlDbType.Int).Value = Precio;
+                        cmd.Parameters.AddWithValue("@NuevoEstado", SqlDbType.Char).Value = 'A';
+                        Detalle = cmd.Parameters.Add("IdDetalle", SqlDbType.Int);
+                        Detalle.Direction = ParameterDirection.ReturnValue;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                        IdDetalle = (int)Detalle.Value;
+                        using(cmd2 = cn.CreateCommand())
+                        {
+                            cmd.CommandText = "SELECT Producto, Cantidad, Precio";
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
     }
 }
