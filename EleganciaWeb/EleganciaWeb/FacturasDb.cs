@@ -19,7 +19,7 @@ namespace EleganciaWeb
                 {
                     using (cmd = new SqlCommand())
                     {
-                        cmd.CommandText = "SELECT TOP 1 Serie FROM Serie ORDER BY Serie DESC";
+                        cmd.CommandText = "SELECT TOP 1 Serie FROM FacSerieNumero ORDER BY Serie DESC";
                         cmd.Connection = cn;
                         cn.Open();
                         Serie = cmd.ExecuteScalar().ToString();
@@ -37,10 +37,7 @@ namespace EleganciaWeb
         {
             SqlConnection cn; SqlCommand cmd; int NumeroFactura = 0; string Numero;
             StringBuilder Comando = new StringBuilder();
-            Comando.Append("SELECT MAX(Numero) FROM NumeroFactura ");
-            Comando.Append(" INNER JOIN Serie ON Serie.Serie ");
-            Comando.AppendFormat(" = '{0}'", Serie);
-
+            Comando.Append("SELECT MAX(Numero) FROM FacSerieNumero ");
             try
             {
                 using (cn = new SqlConnection(Conexion))
@@ -116,10 +113,11 @@ namespace EleganciaWeb
                         IdDetalle =(int)Detalle.Value;
                         using(cmd2 = cn.CreateCommand())
                         {
-                            string comando = "SELECT Producto, Cantidad, Precio FROM DetalleFactura WHERE IdDetalle = " + IdDetalle;
-                            cmd.CommandText = comando;
+                            //cmd2.CommandType = CommandType.Text;
+                            string comando = "SELECT Nombre, Cantidad, Precio FROM vDetalle WHERE IdFactura = " + Factura;
+                            cmd2.CommandText = comando;
                             cn.Open();
-                            dt.Load(cmd.ExecuteReader());
+                            dt.Load(cmd2.ExecuteReader());
                             cn.Close();
                         }
                     }

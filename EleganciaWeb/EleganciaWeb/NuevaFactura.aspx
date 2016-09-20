@@ -104,7 +104,7 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <asp:GridView ID="gvProductos" runat="server"></asp:GridView>
+                            <asp:GridView ID="gvProductos" runat="server" BorderStyle="None" CssClass="table table-hover" GridLines="None" ShowHeader="False"></asp:GridView>
                         </li>
                     </ul>
                 </div>
