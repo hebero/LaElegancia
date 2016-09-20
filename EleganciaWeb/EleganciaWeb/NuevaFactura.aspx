@@ -62,7 +62,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 control-label">Fecha: </label>
                                     <div class="col-md-10">
-                                        <asp:TextBox ID="txtDate" runat="server" CssClass="Date" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
+                                        <asp:TextBox ID="txtDate" runat="server" CssClass="Date txtDate" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -83,7 +83,7 @@
                                 </div>--%>
                                 <div class="form-group">
                                     <label for="txtSku" class="sr-only">Código del producto: </label>
-                                    <asp:TextBox ID="txtSku" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="Producto" OnTextChanged="txtSku_TextChanged"></asp:TextBox>
+                                    <asp:TextBox ID="txtSku" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="SKU" OnTextChanged="txtSku_TextChanged"></asp:TextBox>
                                 </div>
                                 <div class="form-group">
                                     <label for="txtCantidad" class="sr-only">Cantidad de productos: </label>
@@ -104,7 +104,7 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                            <asp:GridView ID="gvProductos" runat="server"></asp:GridView>
                         </li>
                     </ul>
                 </div>

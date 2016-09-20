@@ -104,7 +104,7 @@ namespace EleganciaWeb
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "paNewFacturaDetalle";
                         cmd.Parameters.AddWithValue("@IdFactura", SqlDbType.Int).Value = Factura;
-                        cmd.Parameters.AddWithValue("@IdProducto", SqlDbType.Int).Value = Producto;
+                        cmd.Parameters.AddWithValue("@Sku", SqlDbType.Int).Value = Producto;
                         cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
                         cmd.Parameters.AddWithValue("@Precio", SqlDbType.Int).Value = Precio;
                         cmd.Parameters.AddWithValue("@NuevoEstado", SqlDbType.Char).Value = 'A';
@@ -113,10 +113,14 @@ namespace EleganciaWeb
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         cn.Close();
-                        IdDetalle = (int)Detalle.Value;
+                        IdDetalle =(int)Detalle.Value;
                         using(cmd2 = cn.CreateCommand())
                         {
-                            cmd.CommandText = "SELECT Producto, Cantidad, Precio";
+                            string comando = "SELECT Producto, Cantidad, Precio FROM DetalleFactura WHERE IdDetalle = " + IdDetalle;
+                            cmd.CommandText = comando;
+                            cn.Open();
+                            dt.Load(cmd.ExecuteReader());
+                            cn.Close();
                         }
                     }
                 }

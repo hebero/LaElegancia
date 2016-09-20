@@ -26,7 +26,7 @@ namespace EleganciaWeb.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-9001SKF;Initial Catalog=Elegancia;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-JQ4KQEP\\;Initial Catalog=Elegancia;Integrated Security=True")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

@@ -109,6 +109,31 @@ namespace EleganciaWeb
                 lblAlerta.Text = "Error:" + ex.Message;
             }
         }
+
+        public void AgregarProducto()
+        {
+            //Instancias nuevas
+            FacturasDb xFactura = new FacturasDb();
+            //Conexion
+            string Conexion = Properties.Settings.Default.Conexion;
+            //Variables a convertir
+            decimal Precio = 0; int Cantidad = 0; int Sku = 0;
+            Precio = decimal.Parse(txtPrecio.Text);
+            Cantidad = int.Parse(txtCantidad.Text);
+            Sku = int.Parse(txtSku.Text);
+            try
+            {
+                gvProductos.DataSource = xFactura.NuevoDetalle(Valores.IdFactura, Sku, Cantidad, Precio, Conexion);
+                gvProductos.DataBind();
+            }
+            catch(Exception ex)
+            {
+                lblAlerta.Visible = true;
+                lblAlerta.CssClass = "alert alert-danger";
+                lblAlerta.Text = "Error:" + ex.Message;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -130,7 +155,7 @@ namespace EleganciaWeb
 
         protected void btnAgregarProducto_Click(object sender, EventArgs e)
         {
-
+            AgregarProducto();
         }
 
         protected void txtSku_TextChanged(object sender, EventArgs e)
