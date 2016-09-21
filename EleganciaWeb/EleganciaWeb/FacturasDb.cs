@@ -58,7 +58,7 @@ namespace EleganciaWeb
             }
             return NumeroFactura;
         }
-        public int  NuevoEncabezado(int Cliente, int Bodega, DateTime Fecha, string Conexion)
+        public int  NuevoEncabezado(string Nit, string Nombre, int Bodega, DateTime Fecha, string Conexion)
         {
             SqlConnection cn; SqlCommand cmd; int IdFactura=0; SqlParameter NoFactura;
             try
@@ -69,7 +69,8 @@ namespace EleganciaWeb
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "paNewFacturaEncabezado";
-                        cmd.Parameters.AddWithValue("@IdCliente", SqlDbType.Int).Value = Cliente;
+                        cmd.Parameters.AddWithValue("@Nit", SqlDbType.VarChar).Value = Nit;
+                        cmd.Parameters.AddWithValue("@Nombre", SqlDbType.VarChar).Value = Nombre;
                         cmd.Parameters.AddWithValue("@IdBodega", SqlDbType.Int).Value = Bodega;
                         cmd.Parameters.AddWithValue("@FechaEncabezado", SqlDbType.DateTime).Value = Fecha;
                         NoFactura = cmd.Parameters.Add("IdFactura", SqlDbType.Int);
@@ -129,6 +130,60 @@ namespace EleganciaWeb
             }
 
             return dt;
+        }
+        public DataTable ListaSerie(string Conexion)
+        {
+            DataTable Lista = new DataTable();
+            SqlConnection cn; SqlCommand cmd;
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SELECT Serie FROM FacSerieNumero";
+                        cn.Open();
+                        Lista.Load(cmd.ExecuteReader());
+                        cn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Lista;
+        }
+        public DataTable CargarEncabezado(string Serie, int Numero, string Conexion)
+        {
+            DataTable Encabezado = new DataTable();
+            SqlConnection cn; SqlCommand cmd;
+            StringBuilder Comando = new StringBuilder();
+            Comando.Append(" SELECT * FROM vEncabezadoFactura ");
+            Comando.AppendFormat(" WHERE Serie = '{0}' ", Serie);
+            Comando.AppendFormat(" AND Numero = {0} ", Numero);
+
+
+            try
+            {
+                using(cn = new SqlConnection(Conexion))
+                {
+                    using(cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = Comando.ToString();
+                        cn.Open();
+                        Encabezado.Load(cmd.ExecuteReader());
+                        cn.Close();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            return Encabezado;
         }
     }
 }

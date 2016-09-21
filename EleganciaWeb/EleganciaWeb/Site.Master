@@ -80,6 +80,7 @@
             //$("#txtDate").prop('disabled', true).after();
             //$("#Date").datepicker("option", "disable", false);
             $("#lblAlert").fadeOut(3000, "linear");
+            $("#lblMensaje").fadeOut(3000, "linear");
         });
        
     </script>

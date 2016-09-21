@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CancelarFactura.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BoletasDb.cs" />
+    <Compile Include="CancelarFactura.aspx.cs">
+      <DependentUpon>CancelarFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CancelarFactura.aspx.designer.cs">
+      <DependentUpon>CancelarFactura.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClienteDb.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

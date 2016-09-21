@@ -12,11 +12,11 @@ namespace EleganciaWeb
 {
     public static class Valores
     {
-        public static int IdCliente
-        {
-            get;
-            set;
-        }
+        //public static int IdCliente
+        //{
+        //    get;
+        //    set;
+        //}
         public static int IdFactura
         {
             get;
@@ -26,27 +26,27 @@ namespace EleganciaWeb
 
     public partial class NuevaFactura : System.Web.UI.Page
     {
-        public void AgregarCliente()
-        {
-            int NoCliente = 0;
-            string Nit, Nombre;
-            try
-            {
-                string Conexion = EleganciaWeb.Properties.Settings.Default.Conexion;
-                ClienteDb xCliente = new ClienteDb();
-                Nit = txtNit.Text;
-                Nombre = txtNombreCliente.Text;
-                NoCliente = xCliente.NuevoCliente(Nit, Nombre, Conexion);
-                Valores.IdCliente = NoCliente;
-                txtSku.Text = Valores.IdCliente.ToString();
-            }
-            catch(Exception ex)
-            {
-                lblAlerta.Visible = true;
-                lblAlerta.CssClass = "alert alert-danger";
-                lblAlerta.Text = "Error:" + ex.Message;     //borrar en produccion
-            }
-        }
+        //public void AgregarCliente()
+        //{
+        //    //int NoCliente = 0;
+        //    //string Nit, Nombre;
+        //    //try
+        //    //{
+        //    //    string Conexion = EleganciaWeb.Properties.Settings.Default.Conexion;
+        //    //    ClienteDb xCliente = new ClienteDb();
+        //    //    Nit = txtNit.Text;
+        //    //    Nombre = txtNombreCliente.Text;
+        //    //    NoCliente = xCliente.NuevoCliente(Nit, Nombre, Conexion);
+        //    //    Valores.IdCliente = NoCliente;
+        //    //    txtSku.Text = Valores.IdCliente.ToString();
+        //    //}
+        //    //catch(Exception ex)
+        //    //{
+        //    //    lblAlerta.Visible = true;
+        //    //    lblAlerta.CssClass = "alert alert-danger";
+        //    //    lblAlerta.Text = "Error:" + ex.Message;     //borrar en produccion
+        //    //}
+        //}
         public void CargarDatos()
         {
             SucursalesDb xSucursales = new SucursalesDb();
@@ -78,6 +78,8 @@ namespace EleganciaWeb
         }
         public void AgregarEncabezado()
         {
+            string Nit, Nombre;
+
             int Sucursal;
             DateTime Fecha = new DateTime();
             int NoFactura = 0;
@@ -85,22 +87,14 @@ namespace EleganciaWeb
             string Conexion = EleganciaWeb.Properties.Settings.Default.Conexion;
             try
             {
-                if(Valores.IdCliente == 0)
-                {
-                    lblAlerta.Visible = true;
-                    lblAlerta.CssClass = "alert alert-danger";
-                    lblAlerta.Text = "Datos incompletos 1";
-                }
-                else
-                {
-                    
-                    Sucursal = int.Parse(DropDownSucursal.SelectedValue);
-                    Fecha = DateTime.Parse(txtDate.Text);
+                Nit = txtNit.Text;
+                Sucursal = int.Parse(DropDownSucursal.SelectedValue);
+                Nombre = txtNombreCliente.Text;
+                Fecha = DateTime.Parse(txtDate.Text);
 
-                    NoFactura = xFactura.NuevoEncabezado(Valores.IdCliente, Sucursal,Fecha, Conexion);
-                    Valores.IdFactura = NoFactura;
-                    txtCantidad.Text = Valores.IdFactura.ToString();
-                }
+                NoFactura = xFactura.NuevoEncabezado(Nit, Nombre, Sucursal,Fecha, Conexion);
+                Valores.IdFactura = NoFactura;
+                txtCantidad.Text = Valores.IdFactura.ToString();
             }
             catch(Exception ex)
             {
@@ -145,7 +139,7 @@ namespace EleganciaWeb
 
         protected void btnCliente_Click(object sender, EventArgs e)
         {
-            AgregarCliente();
+            //AgregarCliente();
         }
 
         protected void btnSucursal_Click(object sender, EventArgs e)

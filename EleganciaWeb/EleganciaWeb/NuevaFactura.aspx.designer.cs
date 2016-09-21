@@ -13,15 +13,6 @@ namespace EleganciaWeb {
     public partial class NuevaFactura {
         
         /// <summary>
-        /// lblAlerta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlerta;
-        
-        /// <summary>
         /// txtNit control.
         /// </summary>
         /// <remarks>
@@ -38,15 +29,6 @@ namespace EleganciaWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreCliente;
-        
-        /// <summary>
-        /// btnCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCliente;
         
         /// <summary>
         /// lblNoFactura control.
@@ -128,5 +110,14 @@ namespace EleganciaWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvProductos;
+        
+        /// <summary>
+        /// lblAlerta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAlerta;
     }
 }
