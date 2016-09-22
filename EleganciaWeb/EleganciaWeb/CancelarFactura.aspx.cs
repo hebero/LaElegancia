@@ -25,13 +25,15 @@ namespace EleganciaWeb
         {
             FacturasDb Encabezado = new FacturasDb();
             DataTable dt = new DataTable();
+            DataSet ds = new DataSet();
             string Conexion = Properties.Settings.Default.Conexion;
             try
             {
                 string Serie = ddSerie.SelectedValue.ToString();
                 int Numero = int.Parse(txtNumero.ToString());
                 dt = Encabezado.CargarEncabezado(Serie, Numero, Conexion);
-                //txtSurcursal.DataBind.
+                string nombre = dt.Columns[0].ToString();
+                txtSurcursal.Text = nombre;
             }
             catch(Exception ex)
             {

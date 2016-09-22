@@ -30,14 +30,57 @@ namespace EleganciaWeb
             }
             
         }
+        public void Cargador()
+        {
+            string Conexion = Properties.Settings.Default.Conexion;
+            DireccionDb xDireccion = new DireccionDb();
+            try
+            {
+                ddDepartamento.DataSource = xDireccion.Departamentos(Conexion);
+                ddDepartamento.DataTextField = "Departamento";
+                ddDepartamento.DataValueField = "IdDepartamento";
+                ddDepartamento.DataBind();
+            }
+            catch(Exception ex)
+            {
+                lblAlert.Text = ex.Message;
+            }
+        }
+
+        public void AgregarMunicipio(int Departamento)
+        {
+            string Conexion = Properties.Settings.Default.Conexion;
+            DireccionDb xDireccion = new DireccionDb();
+            try
+            {
+                ddMunicipio.DataSource = xDireccion.Municipios(Departamento,Conexion);
+                ddMunicipio.DataTextField = "Municipio";
+                ddMunicipio.DataValueField = "IdMunicipio";
+                ddMunicipio.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblAlert.Text = ex.Message;
+            }
+
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                Cargador();
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             AgregarSucursal();
+        }
+
+        protected void ddDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AgregarMunicipio(int.Parse(ddDepartamento.SelectedValue));
         }
     }
 }

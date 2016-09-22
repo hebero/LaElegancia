@@ -19,6 +19,18 @@
                                 </div>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Campo requerido" ControlToValidate="txtNombre" CssClass="col-sm-4 alert alert-warning" ClientIDMode="Static"></asp:RequiredFieldValidator>
                             </div>
+                            <div class ="form-group">
+                                <label class="col-sm-2 control-label" for="ddDepartamento">Departamento: </label>
+                                <div class ="col-sm-5">
+                                    <asp:DropDownList ID="ddDepartamento" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddDepartamento_SelectedIndexChanged"></asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class ="form-group">
+                                <label class="col-sm-2 control-label" for="ddMunicipio">Municipio: </label>
+                                <div class ="col-sm-5">
+                                    <asp:DropDownList ID="ddMunicipio" runat="server" CssClass="form-control"></asp:DropDownList>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="txtDireccion">Direccion: </label>
                                 <div class ="col-sm-5">
