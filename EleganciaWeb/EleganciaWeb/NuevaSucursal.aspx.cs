@@ -13,9 +13,11 @@ namespace EleganciaWeb
         {
             SucursalesDb xSucursal = new SucursalesDb();
             string Conexion = Properties.Settings.Default.Conexion;
+            int Municipio = int.Parse(ddMunicipio.SelectedValue.ToString());
             try
             {
-                xSucursal.NuevaSucursal(txtNombre.Text, txtDireccion.Text, Conexion);
+
+                xSucursal.NuevaSucursal(txtNombre.Text, Municipio, txtDireccion.Text, Conexion);
                 lblAlert.Visible = true;
                 lblAlert.CssClass = "alert alert-success";
                 lblAlert.Text = "Sucursal agregada correctamente.";
@@ -70,6 +72,7 @@ namespace EleganciaWeb
             if (!Page.IsPostBack)
             {
                 Cargador();
+                AgregarMunicipio(int.Parse(ddDepartamento.SelectedValue));
             }
         }
 

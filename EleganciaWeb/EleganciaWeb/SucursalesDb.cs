@@ -27,7 +27,7 @@ namespace EleganciaWeb
             }
             return dt;
         }
-        public void NuevaSucursal(string Nombre, string Direccion, string Conexion)
+        public void NuevaSucursal(string Nombre, int Municipio ,string Direccion, string Conexion)
         {
             SqlConnection cn; SqlCommand cmd;
             try
@@ -39,6 +39,7 @@ namespace EleganciaWeb
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "paNewBodega";
                         cmd.Parameters.AddWithValue("@Nombre", SqlDbType.Char).Value = Nombre;
+                        cmd.Parameters.AddWithValue("@Municipio", SqlDbType.Int).Value = Municipio;
                         cmd.Parameters.AddWithValue("@Direccion", SqlDbType.Char).Value = Direccion;
                         cn.Open();
                         cmd.ExecuteNonQuery();

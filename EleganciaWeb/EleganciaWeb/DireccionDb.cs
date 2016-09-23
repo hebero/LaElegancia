@@ -52,7 +52,7 @@ namespace EleganciaWeb
                     using (cmd = cn.CreateCommand())
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "";
+                        cmd.CommandText = comando.ToString();
                         cmd.Connection = cn;
                         cn.Open();
                         Municipios.Load(cmd.ExecuteReader());

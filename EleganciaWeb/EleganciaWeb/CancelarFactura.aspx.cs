@@ -30,9 +30,9 @@ namespace EleganciaWeb
             try
             {
                 string Serie = ddSerie.SelectedValue.ToString();
-                int Numero = int.Parse(txtNumero.ToString());
+                int Numero = int.Parse(txtNumero.Text);
                 dt = Encabezado.CargarEncabezado(Serie, Numero, Conexion);
-                string nombre = dt.Columns[0].ToString();
+                string nombre = dt.Rows[1][0].ToString();
                 txtSurcursal.Text = nombre;
             }
             catch(Exception ex)
