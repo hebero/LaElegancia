@@ -9,17 +9,7 @@ namespace EleganciaWeb
 {
     public partial class ProductoNuevo : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            //Label1.Text = "asdfasjfkñaslf";
-        }
-
-        protected void btnGuardar_Click(object sender, EventArgs e)
+        public void CrearProducto()
         {
             ProductosClass xProducto = new ProductosClass();
             int SKU = 0; string Nombre; bool bSKU = false;
@@ -28,17 +18,20 @@ namespace EleganciaWeb
             bSKU = int.TryParse(txtSKU.Text, out SKU);
 
             Nombre = txtNombre.Text;
-            if(bSKU == true)
+            if (bSKU == true)
             {
                 try
                 {
                     xProducto.NuevoProducto(SKU, Nombre, Conexion);
+                    lblAlerta.Visible = true;
+                    lblAlerta.CssClass = "alert alert-success";
+                    lblAlerta.Text = "Se ha realizado la tarea correctamente.";
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     lblAlerta.Visible = true;
                     lblAlerta.CssClass = "alert alert-warning";
-                    lblAlerta.Text = "La acción se ha realizado correctamente." + ex.Message;
+                    lblAlerta.Text = "Error: " + ex.Message;
                 }
             }
             else
@@ -49,9 +42,29 @@ namespace EleganciaWeb
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    //Label1.Text = "asdfasjfkñaslf";
+        //}
+
+        //protected void btnGuardar_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        protected void btnCrear_Click(object sender, EventArgs e)
+        {
+            CrearProducto();
+        }
+
         //protected void chkEditar_CheckedChanged(object sender, EventArgs e)
         //{
-            
+
         //}
     }
 }

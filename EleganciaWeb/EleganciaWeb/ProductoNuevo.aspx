@@ -24,13 +24,14 @@
                                 <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <asp:LinkButton ID="btnCrear" runat="server" CssClass="col-lg-offset-3 btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Guardar</asp:LinkButton>
+                                <asp:LinkButton ID="btnCrear" runat="server" CssClass="col-lg-offset-3 btn btn-primary" OnClick="btnCrear_Click"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Guardar</asp:LinkButton>
                             </div>
                         </div>
 
-                        <asp:Label ID="lblAlerta" runat="server" Visible="false" Text=""></asp:Label>
+                        
                     </div>
                 </div>
+                <asp:Label ID="lblAlerta" runat="server" Visible="false" Text="" ClientIDMode="Static"></asp:Label>
             </div>
             &nbsp;&nbsp;&nbsp;
         </div>

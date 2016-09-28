@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Data;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace EleganciaWeb
 {
-    public partial class CancelarFactura : System.Web.UI.Page
+    public partial class AnularFactura : System.Web.UI.Page
     {
         public void Limpiar()
         {
@@ -22,7 +22,7 @@ namespace EleganciaWeb
         public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
         {
             lblMensaje.Visible = true;
-            lblMensaje.CssClass ="alert alert-"+ Nivel;
+            lblMensaje.CssClass = "alert alert-" + Nivel;
             lblMensaje.Text = Mensaje + " " + ErrorOpcional;
         }
         public void Cargador()
@@ -34,7 +34,7 @@ namespace EleganciaWeb
             ddSerie.DataValueField = "Serie";
             ddSerie.DataBind();
             ddSerie.Items.Insert(0, "Sleccione serie");
-            
+
         }
         public void CargarEncabezado()
         {
@@ -57,38 +57,38 @@ namespace EleganciaWeb
                     lblCliente.Text = Cliente;
                     lblFecha.Text = Fecha;
                     lblNit.Text = Nit;
-                    btnPreCancelar.Visible = true;
+                    btnPreAnular.Visible = true;
                 }
                 else
                 {
                     Mensaje("No existe la factura seleccionada. ", "warning", " ");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Mensaje("Error: ", "danger", ex.Message);
             }
 
         }
-        public void CancelarFac()
+        public void AnularFac()
         {
-            FacturasDb xCancelar = new FacturasDb();
+            FacturasDb xAnular = new FacturasDb();
             string Conexion = Properties.Settings.Default.Conexion;
             try
             {
                 string Serie = (ddSerie.SelectedValue.ToString());
                 int Numero = int.Parse(txtNumero.Text);
-                bool Completado = xCancelar.CancelarFacturas(Serie, Numero, Conexion);
-                if(Completado == true)
+                bool Completado = xAnular.CancelarFacturas(Serie, Numero, Conexion);
+                if (Completado == true)
                 {
-                    Mensaje("Factura cancelada exitosamente.", "success", "");
+                    Mensaje("Factura fue anulada exitosamente.", "success", "");
                 }
                 else
                 {
-                    Mensaje("La factura no se ha podido cancelar.", "danger", "");
+                    Mensaje("La factura no se ha podido anular.", "danger", "");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Mensaje("Error: ", "danger", ex.Message);
             }
@@ -107,9 +107,9 @@ namespace EleganciaWeb
             CargarEncabezado();
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
+        protected void btnAnular_Click(object sender, EventArgs e)
         {
-            CancelarFac();
+            AnularFac();
         }
     }
 }

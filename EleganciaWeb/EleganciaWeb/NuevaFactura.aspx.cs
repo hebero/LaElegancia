@@ -94,7 +94,7 @@ namespace EleganciaWeb
 
                 NoFactura = xFactura.NuevoEncabezado(Nit, Nombre, Sucursal,Fecha, Conexion);
                 Valores.IdFactura = NoFactura;
-                txtCantidad.Text = Valores.IdFactura.ToString();
+                txtCantidad.Text = Valores.IdFactura.ToString();//quitar en producción
             }
             catch(Exception ex)
             {

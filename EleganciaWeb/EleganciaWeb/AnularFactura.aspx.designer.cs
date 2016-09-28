@@ -10,7 +10,7 @@
 namespace EleganciaWeb {
     
     
-    public partial class CancelarFactura {
+    public partial class AnularFactura {
         
         /// <summary>
         /// pnlAddClassModal control.
@@ -58,13 +58,13 @@ namespace EleganciaWeb {
         protected global::System.Web.UI.WebControls.Panel Panel2;
         
         /// <summary>
-        /// btnCancelar control.
+        /// btnAnular control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancelar;
+        protected global::System.Web.UI.WebControls.LinkButton btnAnular;
         
         /// <summary>
         /// ddSerie control.
@@ -130,13 +130,13 @@ namespace EleganciaWeb {
         protected global::System.Web.UI.WebControls.Label lblNit;
         
         /// <summary>
-        /// btnPreCancelar control.
+        /// btnPreAnular control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnPreCancelar;
+        protected global::System.Web.UI.WebControls.LinkButton btnPreAnular;
         
         /// <summary>
         /// lblMensaje control.

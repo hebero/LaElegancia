@@ -21,7 +21,7 @@ namespace EleganciaWeb
                     using (cmd = cn.CreateCommand())
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "SELECT MAX(Idboleta) FROM Boleta";
+                        cmd.CommandText = "SELECT ISNULL(MAX(IdBoleta),0) FROM Boleta";
                         cn.Open();
                         IdBoleta = int.Parse(cmd.ExecuteScalar().ToString());
                         cn.Close();
@@ -62,11 +62,53 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
             return IdBoleta;
         }
+        public DataTable NuevoDetalle(int Boleta, int Producto, int Cantidad,int Daniado, decimal Precio, DateTime Fecha, string Conexion)
+        {
+            SqlConnection cn; SqlCommand cmd, cmd2;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paDetalleBoleta";
+                        cmd.Parameters.AddWithValue("@IdBoleta", SqlDbType.Int).Value = Boleta;
+                        cmd.Parameters.AddWithValue("@Sku", SqlDbType.Int).Value = Producto;
+                        cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
+                        cmd.Parameters.AddWithValue("@Daniado", SqlDbType.Int).Value = Daniado;
+                        cmd.Parameters.AddWithValue("@FechaVencimiento", SqlDbType.DateTime).Value = Fecha;
+                        cmd.Parameters.AddWithValue("@PrecioRef", SqlDbType.Decimal).Value = Precio;
+
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                        using (cmd2 = cn.CreateCommand())
+                        {
+                            cmd2.CommandType = CommandType.Text;
+                            string comando = "SELECT Producto, Cantidad, Dañado, Precio, [Fecha de Vencimiento] FROM vDetalleBoleta WHERE IdBoleta =  " + Boleta;
+                            cmd2.CommandText = comando;
+                            cn.Open();
+                            dt.Load(cmd2.ExecuteReader());
+                            cn.Close();
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
     }
+
 }

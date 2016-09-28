@@ -11,8 +11,8 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="https://bootswatch.com/yeti/bootstrap.css" rel="stylesheet" />
+    <%--<webopt:bundlereference runat="server" path="~/Content/css" />--%>
     <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/themes/base/jquery-ui.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse ">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,6 +56,43 @@
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contacto</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Artículos <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/ProductoNuevo.aspx">Añadir artículos</a></li>
+                                <li><a runat="server" href="~/CancelarFactura.aspx">Listado de artículos X</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Boletas <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/NuevaMercaderia.aspx">Boleta de entrada</a></li>
+                                <li><a runat="server" href="~/CancelarFactura.aspx">Listado de artículos X</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Sucursales <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/NuevaSucursal.aspx">Nueva sucursal</a></li>
+                                <li><a runat="server" href="~/CancelarFactura.aspx">Sucursales existentes X</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Facturas <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/NuevaFactura.aspx">Nueva factura</a></li>
+                                <li><a runat="server" href="~/CancelarFactura.aspx">Cancelar factura</a></li>
+                                <li><a runat="server" href="~/AnularFactura.aspx">Anular factura X</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -73,14 +110,20 @@
 <script src="Scripts/jquery-ui-1.12.0.js"></script>
     <script> 
         $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
             $(".txtDate").datepicker({ dateFormat: 'dd/mm/yy' });
             $(".txtDate").datepicker();
             //$("#txtDate").datepicker('setDate', new Date());
             $(".txtDate").addClass('form-control').after();
             //$("#txtDate").prop('disabled', true).after();
             //$("#Date").datepicker("option", "disable", false);
-            $("#lblAlert").fadeOut(3000, "linear");
-            $("#lblMensaje").fadeOut(3000, "linear");
+            $("#lblAlert").fadeOut(10000, "swing");
+            $("#lblMensaje").fadeOut(10000, "swing");
+
+            $("#pnlAddClassModal").parent().appendTo($("form:first"));
+
+
+             
         });
        
     </script>

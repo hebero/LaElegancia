@@ -27,7 +27,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
@@ -52,7 +52,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
@@ -82,7 +82,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
@@ -91,8 +91,7 @@ namespace EleganciaWeb
         public DataTable NuevoDetalle(int Factura, int Producto, int Cantidad, decimal Precio, string Conexion)
         {
             SqlConnection cn; SqlCommand cmd, cmd2;
-            DataTable dt = new DataTable(); SqlParameter Detalle;
-            int IdDetalle = 0;
+            DataTable dt = new DataTable();
             try
             {
                 using(cn = new SqlConnection(Conexion))
@@ -105,17 +104,13 @@ namespace EleganciaWeb
                         cmd.Parameters.AddWithValue("@Sku", SqlDbType.Int).Value = Producto;
                         cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
                         cmd.Parameters.AddWithValue("@Precio", SqlDbType.Int).Value = Precio;
-                        cmd.Parameters.AddWithValue("@NuevoEstado", SqlDbType.Char).Value = 'A';
-                        Detalle = cmd.Parameters.Add("IdDetalle", SqlDbType.Int);
-                        Detalle.Direction = ParameterDirection.ReturnValue;
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         cn.Close();
-                        IdDetalle =(int)Detalle.Value;
                         using(cmd2 = cn.CreateCommand())
                         {
-                            //cmd2.CommandType = CommandType.Text;
-                            string comando = "SELECT Nombre, Cantidad, Precio FROM vDetalle WHERE IdFactura = " + Factura;
+                            cmd2.CommandType = CommandType.Text;
+                            string comando = "SELECT Nombre, Cantidad, Precio FROM vDetalleFactura WHERE IdFactura = " + Factura;
                             cmd2.CommandText = comando;
                             cn.Open();
                             dt.Load(cmd2.ExecuteReader());
@@ -124,7 +119,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
@@ -149,7 +144,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
@@ -161,7 +156,7 @@ namespace EleganciaWeb
             SqlConnection cn; SqlCommand cmd;
             StringBuilder Comando = new StringBuilder();
             Comando.Append(" SELECT * FROM vEncabezadoFactura ");
-            Comando.AppendFormat(" WHERE Serie = '{0}' ", Serie);
+            Comando.AppendFormat(" WHERE Estado = 'A' AND Serie = '{0}' ", Serie);
             Comando.AppendFormat(" AND Numero = {0} ", Numero);
 
 
@@ -179,11 +174,66 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException ex)
             {
                 throw ex;
             }
             return Encabezado;
         }
+        public bool CancelarFacturas(string Serie, int Numero, string Conexion)
+        {
+            bool Completado = false;
+            SqlConnection cn; SqlCommand cmd;
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using(cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paFacturaCancelada";
+                        cmd.Parameters.AddWithValue("@Serie", SqlDbType.VarChar).Value = Serie;
+                        cmd.Parameters.AddWithValue("@Numero", SqlDbType.Int).Value = Numero;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                        Completado = true;
+                    }
+                }
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+            return Completado;
+        }
+        public bool AnularFacturas(string Serie, int Numero, string Conexion)
+        {
+            bool Completado = false;
+            SqlConnection cn; SqlCommand cmd;
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paFacturaAnulada";
+                        cmd.Parameters.AddWithValue("@Serie", SqlDbType.VarChar).Value = Serie;
+                        cmd.Parameters.AddWithValue("@Numero", SqlDbType.Int).Value = Numero;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                        Completado = true;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return Completado;
+        }
     }
+
 }

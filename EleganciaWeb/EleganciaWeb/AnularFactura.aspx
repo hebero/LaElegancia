@@ -1,23 +1,22 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CancelarFactura.aspx.cs" Inherits="EleganciaWeb.CancelarFactura" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AnularFactura.aspx.cs" Inherits="EleganciaWeb.AnularFactura" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Panel ID="pnlAddClassModal" runat="server" role="dialog" ClientIDMode="Static" CssClass="modal fade">
+        <asp:Panel ID="pnlAddClassModal" runat="server" role="dialog" ClientIDMode="Static" CssClass="modal fade">
         <asp:Panel ID="pnlInner" runat="server" CssClass="modal-dialog">
             <asp:Panel ID="pnlContent" runat="server" CssClass="modal-content">
                 <asp:Panel ID="Panel1" runat="server" class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                      </button>
-                    <h4 class="modal-title">¿Desea cancelar la factura?</h4>
+                    <h4 class="modal-title">¿Desea anular la factura?</h4>
                 </asp:Panel>
                 <asp:Panel ID="Panel2" runat="server" CssClass="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-                    <asp:LinkButton ID="btnCancelar" runat="server" CssClass="btn btn-success" data-dismiss="modal" OnClientClick="hacerpost();" OnClick="btnCancelar_Click" UseSubmitBehavior="false" ClientIDMode="Static">Si</asp:LinkButton>
+                    <asp:LinkButton ID="btnAnular" runat="server" CssClass="btn btn-success" data-dismiss="modal" OnClientClick="hacerpost();"  UseSubmitBehavior="false" ClientIDMode="Static" OnClick="btnAnular_Click">Si</asp:LinkButton>
                 </asp:Panel>
             </asp:Panel>
         </asp:Panel>
     </asp:Panel>
-
-    <div class="row">
+        <div class="row">
         <div class="col-md-8 col-md-offset-2">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -57,7 +56,7 @@
                                 <asp:Label ID="lblNit" runat="server" Text="--" CssClass="col-md-2"></asp:Label>
                             </div>
                             <div class="form-group">
-                                <asp:LinkButton ID="btnPreCancelar" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">Cancelar</asp:LinkButton>
+                                <asp:LinkButton ID="btnPreAnular" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">Cancelar</asp:LinkButton>
                             </div>
                         </div>
                     </li>
@@ -67,7 +66,7 @@
         </div>
     <script>
         function hacerpost() {
-            __doPostBack('<%= btnCancelar.UniqueID %>', '');
+            __doPostBack('<%= btnAnular.UniqueID %>', '');
         }
     </script>
 </asp:Content>

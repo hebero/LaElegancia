@@ -30,7 +30,7 @@ namespace EleganciaWeb
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
