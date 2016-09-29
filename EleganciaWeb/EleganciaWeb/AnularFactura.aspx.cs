@@ -78,7 +78,7 @@ namespace EleganciaWeb
             {
                 string Serie = (ddSerie.SelectedValue.ToString());
                 int Numero = int.Parse(txtNumero.Text);
-                bool Completado = xAnular.CancelarFacturas(Serie, Numero, Conexion);
+                bool Completado = xAnular.AnularFacturas(Serie, Numero, Conexion);
                 if (Completado == true)
                 {
                     Mensaje("Factura fue anulada exitosamente.", "success", "");

@@ -71,7 +71,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaMercaderia.aspx">Boleta de entrada</a></li>
-                                <li><a runat="server" href="~/CancelarFactura.aspx">Listado de artículos X</a></li>
+                                <li><a runat="server" href="~/CancelarFactura.aspx">Boleta de salida X</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -90,7 +90,9 @@
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaFactura.aspx">Nueva factura</a></li>
                                 <li><a runat="server" href="~/CancelarFactura.aspx">Cancelar factura</a></li>
-                                <li><a runat="server" href="~/AnularFactura.aspx">Anular factura X</a></li>
+                                <li><a runat="server" href="~/AnularFactura.aspx">Anular factura</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a runat="server" href="~/ListadoFacturas.aspx">Listado de facturas X</a></li>
                             </ul>
                         </li>
                     </ul>
