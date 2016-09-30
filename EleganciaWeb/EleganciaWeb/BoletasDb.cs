@@ -68,7 +68,7 @@ namespace EleganciaWeb
             }
             return IdBoleta;
         }
-        public DataTable NuevoDetalle(int Boleta, int Producto, int Cantidad,int Daniado, decimal Precio, DateTime Fecha, string Conexion)
+        public DataTable  NuevaEntrada(int Boleta, int Producto, int Cantidad,int Daniado, decimal Precio, DateTime Fecha, string Conexion)
         {
             SqlConnection cn; SqlCommand cmd, cmd2;
             DataTable dt = new DataTable();
@@ -79,7 +79,7 @@ namespace EleganciaWeb
                     using (cmd = cn.CreateCommand())
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "paDetalleBoleta";
+                        cmd.CommandText = "paBoletaEntrada";
                         cmd.Parameters.AddWithValue("@IdBoleta", SqlDbType.Int).Value = Boleta;
                         cmd.Parameters.AddWithValue("@Sku", SqlDbType.Int).Value = Producto;
                         cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
@@ -94,6 +94,44 @@ namespace EleganciaWeb
                         {
                             cmd2.CommandType = CommandType.Text;
                             string comando = "SELECT Producto, Cantidad, Dañado, Precio, [Fecha de Vencimiento] FROM vDetalleBoleta WHERE IdBoleta =  " + Boleta;
+                            cmd2.CommandText = comando;
+                            cn.Open();
+                            dt.Load(cmd2.ExecuteReader());
+                            cn.Close();
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
+        public DataTable  NuevaSalida(int Boleta, int Producto, int Cantidad, string Conexion)
+        {
+            SqlConnection cn; SqlCommand cmd, cmd2;
+            DataTable dt = new DataTable();
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "paBoletaSalida";
+                        cmd.Parameters.AddWithValue("@IdBoleta", SqlDbType.Int).Value = Boleta;
+                        cmd.Parameters.AddWithValue("@Sku", SqlDbType.Int).Value = Producto;
+                        cmd.Parameters.AddWithValue("@Cantidad", SqlDbType.Int).Value = Cantidad;
+
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        cn.Close();
+                        using (cmd2 = cn.CreateCommand())
+                        {
+                            cmd2.CommandType = CommandType.Text;
+                            string comando = "SELECT Producto, Cantidad FROM vDetalleBoleta WHERE IdBoleta =  " + Boleta;
                             cmd2.CommandText = comando;
                             cn.Open();
                             dt.Load(cmd2.ExecuteReader());

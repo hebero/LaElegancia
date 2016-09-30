@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace EleganciaWeb
 {
-    public partial class NuevaMercaderia : System.Web.UI.Page
+    public partial class SalidaMercaderia : System.Web.UI.Page
     {
         public static class Valores
         {
@@ -30,14 +30,13 @@ namespace EleganciaWeb
             try
             {
                 txtDate.Text = DateTime.Now.ToShortDateString();
-                txtVencimiento.Text = DateTime.Now.ToShortDateString();
                 string Conexion = EleganciaWeb.Properties.Settings.Default.Conexion;
                 DropDownSucursal.DataSource = xSucursales.CargarLista(Conexion);
                 DropDownSucursal.DataTextField = "Nombre";
                 DropDownSucursal.DataValueField = "IdBodega";
                 DropDownSucursal.DataBind();
 
-                string UltimaBoleta = (xBoleta.UltimaBoelta()+1).ToString();
+                string UltimaBoleta = (xBoleta.UltimaBoelta() + 1).ToString();
                 lblBoleta.Text = UltimaBoleta;
             }
             catch (Exception ex)
@@ -72,18 +71,14 @@ namespace EleganciaWeb
         public void AgregarProducto()
         {
             BoletasDb xProducto = new BoletasDb();
-            DateTime Fecha = new DateTime();
             string Conexion = Properties.Settings.Default.Conexion;
             //Variables a convertir
             try
             {
-                decimal Precio = 0; int Cantidad = 0; int Sku = 0; int Daniado = 0;
-                Precio = decimal.Parse(txtPrecio.Text);
+                int Cantidad = 0; int Sku = 0;
                 Cantidad = int.Parse(txtCantidad.Text);
                 Sku = int.Parse(txtSku.Text);
-                Daniado = int.Parse(txtDaniado.Text);
-                Fecha = DateTime.Parse(txtVencimiento.Text);
-                gvProductos.DataSource = xProducto.NuevaEntrada(Valores.IdBoleta, Sku, Cantidad, Daniado, Precio, Fecha, Conexion);
+                gvProductos.DataSource = xProducto.NuevaSalida(Valores.IdBoleta, Sku, Cantidad, Conexion);
                 gvProductos.DataBind();
             }
             catch (Exception ex)
@@ -91,7 +86,6 @@ namespace EleganciaWeb
                 Mensaje("Error ", "danger", ex.Message);
             }
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

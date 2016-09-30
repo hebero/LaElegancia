@@ -54,15 +54,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contacto</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 Artículos <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/ProductoNuevo.aspx">Añadir artículos</a></li>
-                                <li><a runat="server" href="~/CancelarFactura.aspx">Listado de artículos X</a></li>
+                                <li><a runat="server" href="#">Listado de artículos X</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -71,7 +69,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaMercaderia.aspx">Boleta de entrada</a></li>
-                                <li><a runat="server" href="~/CancelarFactura.aspx">Boleta de salida X</a></li>
+                                <li><a runat="server" href="~/SalidaMercaderia.aspx">Boleta de salida</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -80,7 +78,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaSucursal.aspx">Nueva sucursal</a></li>
-                                <li><a runat="server" href="~/CancelarFactura.aspx">Sucursales existentes X</a></li>
+                                <li><a runat="server" href="#">Sucursales existentes X</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
