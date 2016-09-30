@@ -19,12 +19,6 @@
                                     <asp:TextBox ID="txtNit" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="txtNombreCliente">Nombre: </label>
-                                <div class="col-md-10">
-                                    <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                </div>
-                            </div>
                         </div>
                     </li>
                     <li class="list-group-item">

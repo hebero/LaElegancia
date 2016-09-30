@@ -9,10 +9,10 @@ namespace EleganciaWeb
 {
     public class ClienteDb
     {
-        public int NuevoCliente(string Nit, string Nombre, string SqlConexion)
+        public void NuevoCliente(string Nit, string Nombre, string NombreSeg, string ApellidoPrim, string ApellidoSeg, string Direccion, int Municipio, string SqlConexion)
         {
             int IdCliente = 0;
-            SqlConnection cn; SqlCommand cmd; SqlParameter ClienteId;
+            SqlConnection cn; SqlCommand cmd;
             try
             {
                 using (cn = new SqlConnection(SqlConexion))
@@ -23,21 +23,23 @@ namespace EleganciaWeb
                         cmd.CommandText = "paNewCliente";
                         cmd.Parameters.AddWithValue("@Nit", SqlDbType.VarChar).Value = Nit;
                         cmd.Parameters.AddWithValue("@Nombre", SqlDbType.VarChar).Value = Nombre;
-                        ClienteId = cmd.Parameters.Add("IdCliente", SqlDbType.Int);
-                        ClienteId.Direction = ParameterDirection.ReturnValue;
+                        cmd.Parameters.AddWithValue("@NombreSeg", SqlDbType.VarChar).Value = NombreSeg;
+                        cmd.Parameters.AddWithValue("@ApellidoPrim", SqlDbType.VarChar).Value = ApellidoPrim;
+                        cmd.Parameters.AddWithValue("@ApellidoSeg", SqlDbType.VarChar).Value = ApellidoSeg;
+                        cmd.Parameters.AddWithValue("@Direccion", SqlDbType.VarChar).Value = Direccion;
+                        cmd.Parameters.AddWithValue("@Municipio", SqlDbType.Int).Value = Municipio;
+
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         cn.Close();
-
-                        IdCliente = (int)ClienteId.Value;
                     }
                 }
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
-            return IdCliente;
+            return;
         }
     }
 }

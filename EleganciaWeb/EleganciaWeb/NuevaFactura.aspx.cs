@@ -78,7 +78,7 @@ namespace EleganciaWeb
         }
         public void AgregarEncabezado()
         {
-            string Nit, Nombre;
+            string Nit;
 
             int Sucursal;
             DateTime Fecha = new DateTime();
@@ -89,10 +89,9 @@ namespace EleganciaWeb
             {
                 Nit = txtNit.Text;
                 Sucursal = int.Parse(DropDownSucursal.SelectedValue);
-                Nombre = txtNombreCliente.Text;
                 Fecha = DateTime.Parse(txtDate.Text);
 
-                NoFactura = xFactura.NuevoEncabezado(Nit, Nombre, Sucursal,Fecha, Conexion);
+                NoFactura = xFactura.NuevoEncabezado(Nit, Sucursal,Fecha, Conexion);
                 Valores.IdFactura = NoFactura;
                 txtCantidad.Text = Valores.IdFactura.ToString();//quitar en producción
             }

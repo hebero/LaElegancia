@@ -17,18 +17,22 @@
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <label for="txtSKU" class="col-lg-2 control-label">SKU: </label>
-                                <asp:TextBox ID="txtSKU" runat="server" CssClass="form-control"></asp:TextBox>
+                                <div class="col-lg-8">
+                                    <asp:TextBox ID="txtSKU" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="txtNombre" class="col-lg-2 control-label">Nombre: </label>
-                                <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                                <div class="col-lg-8">
+                                    <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <asp:LinkButton ID="btnCrear" runat="server" CssClass="col-lg-offset-3 btn btn-primary" OnClick="btnCrear_Click"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Guardar</asp:LinkButton>
                             </div>
                         </div>
 
-                        
+
                     </div>
                 </div>
                 <asp:Label ID="lblAlerta" runat="server" Visible="false" Text="" ClientIDMode="Static"></asp:Label>

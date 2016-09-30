@@ -58,7 +58,7 @@ namespace EleganciaWeb
             }
             return NumeroFactura;
         }
-        public int  NuevoEncabezado(string Nit, string Nombre, int Bodega, DateTime Fecha, string Conexion)
+        public int  NuevoEncabezado(string Nit, int Bodega, DateTime Fecha, string Conexion)
         {
             SqlConnection cn; SqlCommand cmd; int IdFactura=0; SqlParameter NoFactura;
             try
@@ -70,7 +70,6 @@ namespace EleganciaWeb
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "paNewFacturaEncabezado";
                         cmd.Parameters.AddWithValue("@Nit", SqlDbType.VarChar).Value = Nit;
-                        cmd.Parameters.AddWithValue("@Nombre", SqlDbType.VarChar).Value = Nombre;
                         cmd.Parameters.AddWithValue("@IdBodega", SqlDbType.Int).Value = Bodega;
                         cmd.Parameters.AddWithValue("@FechaEncabezado", SqlDbType.DateTime).Value = Fecha;
                         NoFactura = cmd.Parameters.Add("IdFactura", SqlDbType.Int);

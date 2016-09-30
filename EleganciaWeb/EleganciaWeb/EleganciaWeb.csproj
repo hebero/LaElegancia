@@ -69,10 +69,7 @@
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -123,6 +120,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AnularFactura.aspx" />
+    <Content Include="ArticulosPorBodega.aspx" />
     <Content Include="CancelarFactura.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -287,6 +285,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ArticulosPorBodega.aspx.cs">
+      <DependentUpon>ArticulosPorBodega.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArticulosPorBodega.aspx.designer.cs">
+      <DependentUpon>ArticulosPorBodega.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BoletasDb.cs" />
     <Compile Include="CancelarFactura.aspx.cs">
       <DependentUpon>CancelarFactura.aspx</DependentUpon>
@@ -399,6 +404,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="ReporteExistenciaSucursal.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
