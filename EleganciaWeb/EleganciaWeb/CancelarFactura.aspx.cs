@@ -16,11 +16,13 @@ namespace EleganciaWeb
             lblNit.Text = "--";
             lblCliente.Text = "--";
             lblSucursal.Text = "--";
+            lblMensaje.Text = "";
             lblMensaje.Visible = false;
 
         }
         public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
         {
+            Limpiar();
             lblMensaje.Visible = true;
             lblMensaje.CssClass ="alert alert-"+ Nivel;
             lblMensaje.Text = Mensaje + " " + ErrorOpcional;

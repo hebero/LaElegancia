@@ -21,7 +21,7 @@
             <Mappings>
               <Mapping SourceColumn="IdBodega" DataSetColumn="IdBodega" />
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
-              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Producto" />
               <Mapping SourceColumn="Existencia" DataSetColumn="Existencia" />
               <Mapping SourceColumn="Sku" DataSetColumn="Sku" />
               <Mapping SourceColumn="FechaVencimiento" DataSetColumn="FechaVencimiento" />
@@ -36,7 +36,7 @@
   <xs:element name="EleganciaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="EleganciaDataSet" msprop:Generator_UserDSName="EleganciaDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="vExistenciaBodega" msprop:Generator_TableClassName="vExistenciaBodegaDataTable" msprop:Generator_TableVarName="tablevExistenciaBodega" msprop:Generator_TablePropName="vExistenciaBodega" msprop:Generator_RowDeletingName="vExistenciaBodegaRowDeleting" msprop:Generator_RowChangingName="vExistenciaBodegaRowChanging" msprop:Generator_RowEvHandlerName="vExistenciaBodegaRowChangeEventHandler" msprop:Generator_RowDeletedName="vExistenciaBodegaRowDeleted" msprop:Generator_UserTableName="vExistenciaBodega" msprop:Generator_RowChangedName="vExistenciaBodegaRowChanged" msprop:Generator_RowEvArgName="vExistenciaBodegaRowChangeEvent" msprop:Generator_RowClassName="vExistenciaBodegaRow">
+        <xs:element name="vExistenciaBodega" msprop:Generator_TableClassName="vExistenciaBodegaDataTable" msprop:Generator_TableVarName="tablevExistenciaBodega" msprop:Generator_RowChangedName="vExistenciaBodegaRowChanged" msprop:Generator_TablePropName="vExistenciaBodega" msprop:Generator_RowDeletingName="vExistenciaBodegaRowDeleting" msprop:Generator_RowChangingName="vExistenciaBodegaRowChanging" msprop:Generator_RowEvHandlerName="vExistenciaBodegaRowChangeEventHandler" msprop:Generator_RowDeletedName="vExistenciaBodegaRowDeleted" msprop:Generator_RowClassName="vExistenciaBodegaRow" msprop:Generator_UserTableName="vExistenciaBodega" msprop:Generator_RowEvArgName="vExistenciaBodegaRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdBodega" msprop:Generator_ColumnVarNameInTable="columnIdBodega" msprop:Generator_ColumnPropNameInRow="IdBodega" msprop:Generator_ColumnPropNameInTable="IdBodegaColumn" msprop:Generator_UserColumnName="IdBodega" type="xs:int" />
@@ -47,7 +47,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1">
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

@@ -283,7 +283,7 @@ namespace EleganciaWeb {
             
             private global::System.Data.DataColumn columnNombre;
             
-            private global::System.Data.DataColumn columnExpr1;
+            private global::System.Data.DataColumn columnProducto;
             
             private global::System.Data.DataColumn columnExistencia;
             
@@ -342,9 +342,9 @@ namespace EleganciaWeb {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Expr1Column {
+            public global::System.Data.DataColumn ProductoColumn {
                 get {
-                    return this.columnExpr1;
+                    return this.columnProducto;
                 }
             }
             
@@ -409,12 +409,12 @@ namespace EleganciaWeb {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public vExistenciaBodegaRow AddvExistenciaBodegaRow(int IdBodega, string Nombre, string Expr1, int Existencia, int Sku, System.DateTime FechaVencimiento) {
+            public vExistenciaBodegaRow AddvExistenciaBodegaRow(int IdBodega, string Nombre, string Producto, int Existencia, int Sku, System.DateTime FechaVencimiento) {
                 vExistenciaBodegaRow rowvExistenciaBodegaRow = ((vExistenciaBodegaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdBodega,
                         Nombre,
-                        Expr1,
+                        Producto,
                         Existencia,
                         Sku,
                         FechaVencimiento};
@@ -449,7 +449,7 @@ namespace EleganciaWeb {
             internal void InitVars() {
                 this.columnIdBodega = base.Columns["IdBodega"];
                 this.columnNombre = base.Columns["Nombre"];
-                this.columnExpr1 = base.Columns["Expr1"];
+                this.columnProducto = base.Columns["Producto"];
                 this.columnExistencia = base.Columns["Existencia"];
                 this.columnSku = base.Columns["Sku"];
                 this.columnFechaVencimiento = base.Columns["FechaVencimiento"];
@@ -462,8 +462,8 @@ namespace EleganciaWeb {
                 base.Columns.Add(this.columnIdBodega);
                 this.columnNombre = new global::System.Data.DataColumn("Nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombre);
-                this.columnExpr1 = new global::System.Data.DataColumn("Expr1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnExpr1);
+                this.columnProducto = new global::System.Data.DataColumn("Producto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProducto);
                 this.columnExistencia = new global::System.Data.DataColumn("Existencia", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnExistencia);
                 this.columnSku = new global::System.Data.DataColumn("Sku", typeof(int), null, global::System.Data.MappingType.Element);
@@ -476,8 +476,8 @@ namespace EleganciaWeb {
                 this.columnIdBodega.Unique = true;
                 this.columnNombre.AllowDBNull = false;
                 this.columnNombre.MaxLength = 50;
-                this.columnExpr1.AllowDBNull = false;
-                this.columnExpr1.MaxLength = 50;
+                this.columnProducto.AllowDBNull = false;
+                this.columnProducto.MaxLength = 50;
                 this.columnExistencia.AllowDBNull = false;
                 this.columnSku.AllowDBNull = false;
                 this.columnFechaVencimiento.AllowDBNull = false;
@@ -645,12 +645,12 @@ namespace EleganciaWeb {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Expr1 {
+            public string Producto {
                 get {
-                    return ((string)(this[this.tablevExistenciaBodega.Expr1Column]));
+                    return ((string)(this[this.tablevExistenciaBodega.ProductoColumn]));
                 }
                 set {
-                    this[this.tablevExistenciaBodega.Expr1Column] = value;
+                    this[this.tablevExistenciaBodega.ProductoColumn] = value;
                 }
             }
             
@@ -849,7 +849,7 @@ namespace EleganciaWeb.EleganciaDataSetTableAdapters {
             tableMapping.DataSetTable = "vExistenciaBodega";
             tableMapping.ColumnMappings.Add("IdBodega", "IdBodega");
             tableMapping.ColumnMappings.Add("Nombre", "Nombre");
-            tableMapping.ColumnMappings.Add("Expr1", "Expr1");
+            tableMapping.ColumnMappings.Add("Expr1", "Producto");
             tableMapping.ColumnMappings.Add("Existencia", "Existencia");
             tableMapping.ColumnMappings.Add("Sku", "Sku");
             tableMapping.ColumnMappings.Add("FechaVencimiento", "FechaVencimiento");

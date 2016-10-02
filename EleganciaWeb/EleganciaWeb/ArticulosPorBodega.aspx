@@ -13,11 +13,11 @@ Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
                     <div class="form-inline">
                         <label for="ddSucursal" class="control-label">Sucursales</label>
                         <asp:DropDownList ID="ddSucursales" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddSucursales_SelectedIndexChanged"></asp:DropDownList>
-                        <input id="Button1" type="button" value="button" onclick="hacerpost();" />
+                        <asp:LinkButton ID="btnCrear" runat="server" CssClass="btn btn-primary" OnClick="btnCrear_Click">Crear reporte <span class="glyphicon glyphicon-file" aria-hidden="true"></span></asp:LinkButton>
                     </div>
                 </li>
                 <li class="list-group-item">
-                    <rsweb:ReportViewer ID="ReportViewer1" runat="server"></rsweb:ReportViewer>
+                    <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="900px"></rsweb:ReportViewer>
                 </li>
             </ul>
         </div>
@@ -25,9 +25,4 @@ Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
     <div class="row">
         <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false"></asp:Label>
     </div>
-    <script>
-                function hacerpost() {
-            __doPostBack('<%= ddSucursales.UniqueID %>', '');
-        }
-    </script>
 </asp:Content>

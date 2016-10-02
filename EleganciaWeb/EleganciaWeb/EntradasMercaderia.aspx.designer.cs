@@ -10,7 +10,7 @@
 namespace EleganciaWeb {
     
     
-    public partial class ArticulosPorBodega {
+    public partial class EntradasMercaderia {
         
         /// <summary>
         /// ddSucursales control.
@@ -20,6 +20,24 @@ namespace EleganciaWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddSucursales;
+        
+        /// <summary>
+        /// txtFechaIni control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaIni;
+        
+        /// <summary>
+        /// txtFechaFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaFin;
         
         /// <summary>
         /// btnCrear control.

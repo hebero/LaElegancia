@@ -11,7 +11,6 @@ namespace EleganciaWeb
     {
         public void NuevoCliente(string Nit, string Nombre, string NombreSeg, string ApellidoPrim, string ApellidoSeg, string Direccion, int Municipio, string SqlConexion)
         {
-            int IdCliente = 0;
             SqlConnection cn; SqlCommand cmd;
             try
             {

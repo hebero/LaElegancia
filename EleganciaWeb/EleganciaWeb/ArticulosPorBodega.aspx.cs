@@ -43,7 +43,7 @@ namespace EleganciaWeb
             SqlConnection cn; SqlCommand cmd;
             string conexion = Properties.Settings.Default.Conexion;
             StringBuilder Comando = new StringBuilder();
-            Comando.Append("SELECT b.Nombre, p.Sku, p.Nombre, i.Disponible FROM Inventario i, Bodega b, Producto p ");
+            Comando.Append("SELECT p.Sku, p.Nombre, i.Disponible, i.Daniado, i.PrecioVenta, b.Nombre AS Bodega FROM Inventario i, Bodega b, Producto p ");
             Comando.Append(" WHERE b.IdBodega = i.IdBodega AND p.IdProducto = i.IdProducto ");
             Comando.AppendFormat(" AND b.IdBodega = {0} ", Bodega);
             TablaRpt = new DataTable();
@@ -92,6 +92,11 @@ namespace EleganciaWeb
         }
 
         protected void ddSucursales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnCrear_Click(object sender, EventArgs e)
         {
             Reporte();
         }

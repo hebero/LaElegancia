@@ -123,6 +123,11 @@
 
             $("#pnlAddClassModal").parent().appendTo($("form:first"));
 
+            $(".txtFecha").datepicker({ dateFormat: 'yy-mm-dd' });
+            $(".txtFecha").datepicker();
+            //$("#txtDate").datepicker('setDate', new Date());
+            $(".txtFecha").addClass('form-control').after();
+
 
              
         });

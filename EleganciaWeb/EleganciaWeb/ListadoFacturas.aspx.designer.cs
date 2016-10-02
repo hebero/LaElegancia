@@ -10,25 +10,34 @@
 namespace EleganciaWeb {
     
     
-    public partial class ArticulosPorBodega {
+    public partial class ListadoFacturas {
         
         /// <summary>
-        /// ddSucursales control.
+        /// ddSerie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddSucursales;
+        protected global::System.Web.UI.WebControls.DropDownList ddSerie;
         
         /// <summary>
-        /// btnCrear control.
+        /// txtNumero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCrear;
+        protected global::System.Web.UI.WebControls.TextBox txtNumero;
+        
+        /// <summary>
+        /// btnBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnBuscar;
         
         /// <summary>
         /// ReportViewer1 control.

@@ -50,7 +50,7 @@ namespace EleganciaWeb
                         cmd.CommandText = "paNewEncabezadoBoleta";
                         cmd.Parameters.AddWithValue("@IdBodega", SqlDbType.Int).Value = Bodega;
                         cmd.Parameters.AddWithValue("@FechaBoleta", SqlDbType.DateTime).Value = Fecha;
-                        cmd.Parameters.AddWithValue("@TipoBoleta", SqlDbType.Char).Value = 'E';
+                        cmd.Parameters.AddWithValue("@TipoBoleta", SqlDbType.Char).Value = 'S';
                         cmd.Parameters.AddWithValue("@Descripcion", SqlDbType.VarChar).Value = Descripcion;
                         Boleta = new SqlParameter();
                         Boleta = cmd.Parameters.Add("@IdBoleta", SqlDbType.Int);
