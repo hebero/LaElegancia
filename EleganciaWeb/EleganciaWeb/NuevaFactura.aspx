@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Fecha: </label>
                                 <div class="col-md-10">
-                                    <asp:TextBox ID="txtDate" runat="server" CssClass="Date txtDate" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="txtDate" runat="server" CssClass="Date txtDate" ClientIDMode="Static"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -79,7 +79,7 @@
                         </div>
                     </li>
                     <li class="list-group-item">
-                        <asp:GridView ID="gvProductos" runat="server" BorderStyle="None" CssClass="table table-hover" GridLines="None" ShowHeader="False"></asp:GridView>
+                        <asp:GridView ID="gvProductos" runat="server" BorderStyle="None" CssClass="table table-hover" GridLines="None" ShowHeader="True"></asp:GridView>
                     </li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
     </div>
     <div class="row">
         <div class="col-md-4 col-md-offset-2">
-            <asp:Label ID="lblAlerta" runat="server" Text="" Visible="false"></asp:Label>
+            <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false" ClientIDMode="Static"></asp:Label>
         </div>
     </div>
 </asp:Content>

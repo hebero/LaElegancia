@@ -6,14 +6,14 @@ PublicKeyToken=89845dcd8080cc91"
 Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
-        <div class="col-lg-10">
+        <div class="col-lg-10 col-lg-offset-1">
             <ul class="list-group">
                 <li class="list-group-item">
                     <h4>Listado de productos en existencia por sucursal</h4>
-                    <div class="form-inline">
+                    <div class="form-inline col-lg-offset-1">
                         <label for="ddSucursal" class="control-label">Sucursales</label>
                         <asp:DropDownList ID="ddSucursales" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddSucursales_SelectedIndexChanged"></asp:DropDownList>
-                        <asp:LinkButton ID="btnCrear" runat="server" CssClass="btn btn-primary" OnClick="btnCrear_Click">Crear reporte <span class="glyphicon glyphicon-file" aria-hidden="true"></span></asp:LinkButton>
+                        <asp:LinkButton ID="btnCrear" runat="server" CssClass="btn btn-primary" OnClick="btnCrear_Click"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Crear reporte </asp:LinkButton>
                     </div>
                 </li>
                 <li class="list-group-item">

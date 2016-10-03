@@ -15,8 +15,9 @@ namespace EleganciaWeb
             DataTable Tabla = new DataTable();
             SqlConnection cn; SqlCommand cmd;
             StringBuilder Comando = new StringBuilder();
-            Comando.Append(" SELECT b.IdBoleta, b.FechaBoleta, s.Nombre FROM Boleta b, Bodega s ");
-            Comando.Append(" WHERE b.IdBodega = s.IdBodega AND b.TipoBoleta = 'E' AND b.FechaBoleta BETWEEN ");
+            Comando.Append(" SELECT * FROM vBoletasEntrada  ");
+            Comando.AppendFormat(" Where IdBodega = {0} AND  ", Sucursal);
+            Comando.Append(" FechaBoleta BETWEEN ");
             Comando.AppendFormat(" (CAST('{0}' AS DATE)) AND ", FechaInicial);
             Comando.AppendFormat(" (CAST('{0}' AS DATE)) ", FechaFinal);
             try
@@ -68,23 +69,55 @@ namespace EleganciaWeb
             StringBuilder Comando = new StringBuilder();
             Comando.Append("SELECT * FROM vBoletasDetalle ");
             Comando.AppendFormat(" WHERE vBoletasDetalle.IdBoleta = {0} ", Numero);
-            using (cn = new SqlConnection(Conexion))
+            try
             {
-                using (cmd = cn.CreateCommand())
+                using (cn = new SqlConnection(Conexion))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = Comando.ToString();
-                    cn.Open();
-                    Tabla.Load(cmd.ExecuteReader());
-                    cn.Close();
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = Comando.ToString();
+                        cn.Open();
+                        Tabla.Load(cmd.ExecuteReader());
+                        cn.Close();
 
+                    }
                 }
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
             }
             return Tabla;
         }
-        public DataTable Factura(string Serie, int numero, string Conexion)
+        public DataTable Factura(string Serie, int Numero, string Conexion)
         {
+            DataTable Factura = new DataTable();
+            SqlConnection cn; SqlCommand cmd;
+            StringBuilder Comando = new StringBuilder();
+            Comando.Append("SELECT * FROM vFacturaDetalle ");
+            Comando.AppendFormat(" WHERE vFacturaDetalle.Serie = '{0}' ", Serie);
+            Comando.AppendFormat(" AND vFacturaDetalle.Numero = {0} ", Numero);
+            try
+            {
+                using (cn = new SqlConnection(Conexion))
+                {
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = Comando.ToString();
+                        cn.Open();
+                        Factura.Load(cmd.ExecuteReader());
+                        cn.Close();
 
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return Factura;
         }
     }
 

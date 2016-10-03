@@ -30,10 +30,6 @@ namespace EleganciaWeb
             CultureInfo Provider = CultureInfo.InvariantCulture;
             try
             {
-                //string FechaInit, FechaFin;
-                //FechaInit = DateTime.Now.AddDays(-31).ToUniversalTime().ToString("yyyy-mm-dd");
-                //txtFechaIni.Text = FechaInit; 
-                /*DateTime.ParseExact(FechaInit, "0:dd-MM-yyyy",Provider).ToString();*/
                 txtFechaIni.Text = DateTime.Now.AddDays(-31).ToShortDateString();
                 txtFechaFin.Text = DateTime.Now.ToShortDateString();
                 string Conexion = Properties.Settings.Default.Conexion;

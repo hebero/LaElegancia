@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListadoFacturas.aspx.cs" Inherits="EleganciaWeb.ListadoFacturas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReporteFactura.aspx.cs" Inherits="EleganciaWeb.ListadoFacturas" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -7,7 +7,7 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
-                            <h4>Factura</h4>
+                            <h4>Datos de la Factura</h4>
                         </div>
                         <div class="form-inline">
                             <div class="form-group">
@@ -17,7 +17,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txtNumero" class="col-md-4 control-label">Serie:</label>
+                                <label for="txtNumero" class="col-md-4 control-label">Numero de factuar:</label>
                                 <div class="col-md-4">
                                     <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>

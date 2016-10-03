@@ -22,7 +22,9 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
-                            <h4>Factura</h4>
+                            <h4>Datos de la Factura</h4>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo números." ValidationExpression="^\d+$" ControlToValidate="txtNumero" CssClass="col-lg-offset-5 alert-warning"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Numero requerido." ControlToValidate="txtNumero" CssClass="alert-warning"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-inline">
                             <div class="form-group">
@@ -57,7 +59,10 @@
                                 <asp:Label ID="lblNit" runat="server" Text="--" CssClass="col-md-2"></asp:Label>
                             </div>
                             <div class="form-group">
-                                <asp:LinkButton ID="btnPreCancelar" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">Cancelar</asp:LinkButton>
+                                <label for="lblEstado" class="col-md-2">Estado: </label>
+                                <asp:Label ID="lblEstado" runat="server" Text="--" CssClass="col-md-2"></asp:Label>
+                                <asp:LinkButton ID="btnPreCancelar" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">
+                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Cancelar</asp:LinkButton>
                             </div>
                         </div>
                     </li>

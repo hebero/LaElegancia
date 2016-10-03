@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EntradasMercaderia.aspx.cs" Inherits="EleganciaWeb.EntradasMercaderia" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EntradasSalidasMercaderia.aspx.cs" Inherits="EleganciaWeb.EntradasMercaderia" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
@@ -13,11 +13,11 @@
                         </div>
                         <div class="form-group">
                             <label for="txtFechaIni" class="control-label">Fecha inicio:</label>
-                            <asp:TextBox ID="txtFechaIni" runat="server" CssClass="txtFecha" ClientIDMode="Static" ReadOnly="true"></asp:TextBox>
+                            <asp:TextBox ID="txtFechaIni" runat="server" CssClass="txtFecha" ClientIDMode="Static" ></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="txtFechaFin" class="control-label">Fecha final:</label>
-                            <asp:TextBox ID="txtFechaFin" runat="server" CssClass="txtFecha" ClientIDMode="Static" ReadOnly="true"></asp:TextBox>
+                            <asp:TextBox ID="txtFechaFin" runat="server" CssClass="txtFecha" ClientIDMode="Static" ></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <asp:LinkButton ID="btnCrear" runat="server" CssClass="btn btn-primary" OnClick="btnCrear_Click">Crear reporte <span class="glyphicon glyphicon-file" aria-hidden="true"></span></asp:LinkButton>

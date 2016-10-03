@@ -1,0 +1,101 @@
+commit ac155481e80cbab4878764587913a85059f4b4d3
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Sun Oct 2 01:12:02 2016 -0600
+
+    Agregando reportes, 1,2,3.
+
+commit 49a1bf7d2e7c2080c2434bc65c9488b7a98763b2
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Fri Sep 30 12:00:25 2016 -0600
+
+    Añadiendo primer reporte. Aun con errores.
+
+commit c3c559f756f2e015ff80a33eaf6aca2793d4bc7d
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Fri Sep 30 04:07:59 2016 -0600
+
+    Nueva Mercaderia y Salida de Mercaderia. Boletas.
+
+commit 26a4be0e2f9769a503359c8a1c535a87a901e2f6
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Thu Sep 29 05:20:05 2016 -0600
+
+    Anular y bak.
+
+commit 89c5740d5e91ac920a405ae6b8e014b702f5bc5d
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Wed Sep 28 05:14:35 2016 -0600
+
+    Agregando, facturas anuladas, canceladas, boletas de ingreso.
+
+commit 42295a3b97367168ae3c901711acff928315b537
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Fri Sep 23 11:00:54 2016 -0600
+
+    Arreglos en CancelarFactura, Nuevo producto, y nueva sucursal.
+
+commit fa5f2f7ddadb07a1278788f337ac2c0475ebcfe6
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Thu Sep 22 10:27:43 2016 -0600
+
+    Agregar dd para la direccion
+
+commit b0f9f534657e9b02b32b59227571b15d1a611996
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Wed Sep 21 11:18:04 2016 -0600
+
+    Agregando modulo de Cancelar (incompleto)
+
+commit 98804b1a5d535acb486309c2b9746a10d3dd0f7d
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Tue Sep 20 11:10:15 2016 -0600
+
+    Fallos con factura y grid arreglados.
+
+commit ecad8f4bcab396e6aecd217cdce6f7dcf16107c1
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Tue Sep 20 08:00:52 2016 -0600
+
+    .
+
+commit 19007c8ce0231edc061b85b04f87d9dfb6e6b3ad
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Mon Sep 19 21:51:49 2016 -0600
+
+    Pruebas de reportes.
+
+commit c00c8c3ed4f07e7b3c5d3c0b71f0f0bdd1fc2f33
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Sun Sep 18 19:20:49 2016 -0600
+
+    Actualizacion de Bootstrap, jQuery y creación de clases para el ingreso de Boletas y Sucursales.
+
+commit 35a294d76c28693c297217e07630de156f3d062c
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Sat Sep 17 22:36:27 2016 -0600
+
+    Acciones para agregar un encabezado de factura.
+
+commit 307ca08e823cf4651a9978206633ca870230d65d
+Author: Heber Orellana <heberdanielorellana@gmail.com>
+Date:   Sun Sep 11 22:49:45 2016 -0600
+
+    Nuevas clases.
+
+commit e4e14fc4eb26f90475b98f80dcc084400898ebab
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Fri Sep 9 10:57:54 2016 -0600
+
+    Viernes
+
+commit f7933fef84624ed9d3c8455d8f6775d6e19e98fb
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Thu Sep 8 11:32:35 2016 -0600
+
+    .
+
+commit 04f2c305ef9441452aaefd2382652cc9f03c91cf
+Author: Heber <heberdanielorellana@gmail.com>
+Date:   Thu Sep 8 10:55:48 2016 -0600
+
+    Init commit

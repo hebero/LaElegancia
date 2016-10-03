@@ -5,24 +5,29 @@ using System.Web;
 using System.Web.UI;
 using System.Data;
 using System.Web.UI.WebControls;
+using System.Text;
 
 namespace EleganciaWeb
 {
     public partial class CancelarFactura : System.Web.UI.Page
     {
+        public void LimpiarMensaje()
+        {
+            lblMensaje.Text = "";
+            lblMensaje.CssClass = "";
+            lblMensaje.Visible = false;
+        }
         public void Limpiar()
         {
             lblFecha.Text = "--";
             lblNit.Text = "--";
             lblCliente.Text = "--";
             lblSucursal.Text = "--";
-            lblMensaje.Text = "";
-            lblMensaje.Visible = false;
-
+            lblEstado.Text = "--";
         }
         public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
         {
-            Limpiar();
+            LimpiarMensaje();
             lblMensaje.Visible = true;
             lblMensaje.CssClass ="alert alert-"+ Nivel;
             lblMensaje.Text = Mensaje + " " + ErrorOpcional;
@@ -51,14 +56,30 @@ namespace EleganciaWeb
                 Limpiar();
                 if (dt.Rows.Count > 0)
                 {
+                    StringBuilder Cliente = new StringBuilder();
+                    Cliente.AppendFormat(dt.Rows[0][1].ToString() + " ");
+                    Cliente.AppendFormat(dt.Rows[0][7].ToString());
                     string Sucursal = dt.Rows[0][0].ToString();
-                    string Cliente = dt.Rows[0][1].ToString();
                     string Nit = dt.Rows[0][2].ToString();
                     string Fecha = dt.Rows[0][5].ToString();
+                    string Estado = dt.Rows[0][6].ToString();
                     lblSucursal.Text = Sucursal;
-                    lblCliente.Text = Cliente;
+                    lblCliente.Text = Cliente.ToString(); ;
                     lblFecha.Text = Fecha;
                     lblNit.Text = Nit;
+                    switch (Estado)
+                    {
+                        case "C":
+                            lblEstado.Text = "Cancelada";
+                            break;
+                        case "A":
+                            lblEstado.Text = "Activa";
+                            break;
+                        case "N":
+                            lblEstado.Text = "Anulada";
+                            break;
+                    }
+                    Mensaje("Factura cargada.", "success", "");
                     btnPreCancelar.Visible = true;
                 }
                 else

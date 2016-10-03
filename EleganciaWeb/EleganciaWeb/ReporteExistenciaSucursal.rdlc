@@ -6,19 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.62417cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.87583cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.34667cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>3.18792cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.5cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.37854cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -83,6 +86,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#7292cc</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>#4c68a2</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Existencia</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <FontSize>11pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#7292cc</Color>
@@ -278,6 +317,40 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Disponible.Value+Fields!Daniado.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Disponible">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -386,6 +459,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -399,9 +473,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSetExistenciaSucursal</DataSetName>
-        <Top>1.16444cm</Top>
+        <Top>2.19632cm</Top>
         <Height>1.2cm</Height>
-        <Width>12.5cm</Width>
+        <Width>20.91312cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -416,16 +490,22 @@
             <TextRuns>
               <TextRun>
                 <Value>Listado de productos</Value>
-                <Style />
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Left>0cm</Left>
-        <Height>0.6cm</Height>
-        <Width>3.39958cm</Width>
+        <Left>6.71917cm</Left>
+        <Height>0.78521cm</Height>
+        <Width>7.31541cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -445,16 +525,19 @@
             <TextRuns>
               <TextRun>
                 <Value>Bodega:</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Left>6.12417cm</Left>
+        <Top>1.16444cm</Top>
         <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
+        <Width>2.24834cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -474,16 +557,20 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!Bodega.Value, "DataSetExistenciaSucursal")</Value>
-                <Style />
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Left>8.62417cm</Left>
+        <Top>1.16444cm</Top>
+        <Left>2.5cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.87583cm</Width>
+        <Width>5cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -499,7 +586,7 @@
     <Height>1.82292in</Height>
     <Style />
   </Body>
-  <Width>4.92126in</Width>
+  <Width>8.23351in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

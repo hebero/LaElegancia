@@ -12,18 +12,26 @@ namespace EleganciaWeb
     {
         public DataTable CargarLista(string Conexion)
         {
-            SqlConnection cn; SqlCommand cmd; DataTable dt;
-            using (cn = new SqlConnection(Conexion))
+            SqlConnection cn; SqlCommand cmd; DataTable dt = new DataTable();
+            try
             {
-                using(cmd = cn.CreateCommand())
+                
+                using (cn = new SqlConnection(Conexion))
                 {
-                    cmd.CommandText = "SELECT IdBodega, Nombre FROM Bodega";
-                    cmd.Connection = cn;
-                    dt = new DataTable();
-                    cn.Open();
-                    dt.Load(cmd.ExecuteReader());
-                    cn.Close();
+                    using (cmd = cn.CreateCommand())
+                    {
+                        cmd.CommandText = "SELECT IdBodega, Nombre FROM Bodega";
+                        cmd.Connection = cn;
+                        
+                        cn.Open();
+                        dt.Load(cmd.ExecuteReader());
+                        cn.Close();
+                    }
                 }
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
             }
             return dt;
         }
@@ -47,7 +55,7 @@ namespace EleganciaWeb
                     }
                 }
             } 
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

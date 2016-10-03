@@ -17,8 +17,22 @@ namespace EleganciaWeb
                 set;
             }
         }
+        public void LimpiarMensaje()
+        {
+            lblMensaje.Text = "";
+            lblMensaje.CssClass = "";
+            lblMensaje.Visible = false;
+        }
+        public void Limpiar()
+        {
+            txtCantidad.Text = "";
+            txtDaniado.Text = "";
+            txtPrecio.Text = "";
+            txtSku.Text = "";
+        }
         public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
         {
+            LimpiarMensaje();
             lblMensaje.Visible = true;
             lblMensaje.CssClass = "alert alert-" + Nivel;
             lblMensaje.Text = Mensaje + ": " + ErrorOpcional;
@@ -49,7 +63,6 @@ namespace EleganciaWeb
         public void AgregarBoleta()
         {
             string Descripcion = " ";
-            Descripcion = txtDescripcion.Text;
             int Sucursal;
             DateTime Fecha = new DateTime();
             int NoBoleta = 0;
@@ -57,12 +70,12 @@ namespace EleganciaWeb
             string Conexion = EleganciaWeb.Properties.Settings.Default.Conexion;
             try
             {
+                Descripcion = txtDescripcion.Text;
                 Sucursal = int.Parse(DropDownSucursal.SelectedValue);
                 Fecha = DateTime.Parse(txtDate.Text);
 
                 NoBoleta = xBoleta.NuevoEncabezado(Sucursal, Fecha, Descripcion, Conexion);
                 Valores.IdBoleta = NoBoleta;
-                txtCantidad.Text = Valores.IdBoleta.ToString(); //quitar en produccion
             }
             catch (Exception ex)
             {
@@ -83,8 +96,18 @@ namespace EleganciaWeb
                 Sku = int.Parse(txtSku.Text);
                 Daniado = int.Parse(txtDaniado.Text);
                 Fecha = DateTime.Parse(txtVencimiento.Text);
-                gvProductos.DataSource = xProducto.NuevaEntrada(Valores.IdBoleta, Sku, Cantidad, Daniado, Precio, Fecha, Conexion);
-                gvProductos.DataBind();
+                if(Valores.IdBoleta == 0)
+                {
+                    Mensaje("Debe crear el encabezado de la boleta antes de agregar productos.", "warning", "");
+                    Limpiar();
+                }
+                else
+                {
+                    gvProductos.DataSource = xProducto.NuevaEntrada(Valores.IdBoleta, Sku, Cantidad, Daniado, Precio, Fecha, Conexion);
+                    gvProductos.DataBind();
+                    Limpiar();
+                }
+
             }
             catch (Exception ex)
             {

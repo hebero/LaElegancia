@@ -9,6 +9,24 @@ namespace EleganciaWeb
 {
     public partial class ProductoNuevo : System.Web.UI.Page
     {
+        public void LimpiarMensaje()
+        {
+            lblMensaje.Text = "";
+            lblMensaje.CssClass = "";
+            lblMensaje.Visible = false;
+        }
+        public void Limpiar()
+        {
+            txtNombre.Text = "";
+            txtSKU.Text = "";
+        }
+        public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
+        {
+            Limpiar();
+            lblMensaje.Visible = true;
+            lblMensaje.CssClass = "alert alert-" + Nivel;
+            lblMensaje.Text = Mensaje + " " + ErrorOpcional;
+        }
         public void CrearProducto()
         {
             ProductosClass xProducto = new ProductosClass();
@@ -23,22 +41,16 @@ namespace EleganciaWeb
                 try
                 {
                     xProducto.NuevoProducto(SKU, Nombre, Conexion);
-                    lblAlerta.Visible = true;
-                    lblAlerta.CssClass = "alert alert-success";
-                    lblAlerta.Text = "Se ha realizado la tarea correctamente.";
+                    Mensaje("Artículo agregado correctamente.", "success", "");
                 }
                 catch (Exception ex)
                 {
-                    lblAlerta.Visible = true;
-                    lblAlerta.CssClass = "alert alert-warning";
-                    lblAlerta.Text = "Error: " + ex.Message;
+                    Mensaje("Error: ", "danger", ex.Message);
                 }
             }
             else
             {
-                lblAlerta.Visible = true;
-                lblAlerta.CssClass = "alert alert-danger";
-                lblAlerta.Text = "El SKU del producto debe ser númerico.";
+                Mensaje("El SKU del producto debe ser númerico.", "success", "");
             }
         }
 
@@ -46,25 +58,10 @@ namespace EleganciaWeb
         {
 
         }
-
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    //Label1.Text = "asdfasjfkñaslf";
-        //}
-
-        //protected void btnGuardar_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
         protected void btnCrear_Click(object sender, EventArgs e)
         {
             CrearProducto();
         }
 
-        //protected void chkEditar_CheckedChanged(object sender, EventArgs e)
-        //{
-
-        //}
     }
 }

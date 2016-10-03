@@ -109,7 +109,7 @@ namespace EleganciaWeb
                         using(cmd2 = cn.CreateCommand())
                         {
                             cmd2.CommandType = CommandType.Text;
-                            string comando = "SELECT Nombre, Cantidad, Precio FROM vDetalleFactura WHERE IdFactura = " + Factura;
+                            string comando = "SELECT Articulo, Cantidad, Precio FROM vDetalleFactura WHERE IdFactura = " + Factura;
                             cmd2.CommandText = comando;
                             cn.Open();
                             dt.Load(cmd2.ExecuteReader());
@@ -155,7 +155,7 @@ namespace EleganciaWeb
             SqlConnection cn; SqlCommand cmd;
             StringBuilder Comando = new StringBuilder();
             Comando.Append(" SELECT * FROM vEncabezadoFactura ");
-            Comando.AppendFormat(" WHERE Estado = 'A' AND Serie = '{0}' ", Serie);
+            Comando.AppendFormat(" WHERE Serie = '{0}' ", Serie);
             Comando.AppendFormat(" AND Numero = {0} ", Numero);
 
 

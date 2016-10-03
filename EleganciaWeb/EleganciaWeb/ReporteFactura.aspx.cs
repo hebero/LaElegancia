@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,7 +37,28 @@ namespace EleganciaWeb
         }
         public void CrearFactura()
         {
-
+            Reportes xReporte = new Reportes();
+            ReportDataSource rds = new ReportDataSource();
+            string Conexion = Properties.Settings.Default.Conexion;
+            try
+            {
+                int Numero = 0;
+                string Serie = ddSerie.SelectedValue.ToString();
+                Numero = int.Parse(txtNumero.Text);
+                ReportViewer1.Reset();
+                ReportViewer1.LocalReport.DataSources.Clear();
+                ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/rpFacturaDetalle.rdlc");
+                rds.Name = "DataSetFacturaDetalle";
+                rds.Value = xReporte.Factura(Serie,Numero, Conexion);
+                ReportViewer1.LocalReport.DataSources.Add(rds);
+                ReportViewer1.ShowRefreshButton = true;
+                Mensaje("Reporte generado correctamente", "success", "");
+            }
+            catch (Exception ex)
+            {
+                Mensaje("Error: ", "danger", ex.Message);
+            }
         }
         protected void Page_Load(object sender, EventArgs e)
         {

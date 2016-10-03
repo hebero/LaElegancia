@@ -9,26 +9,43 @@ namespace EleganciaWeb
 {
     public partial class NuevaSucursal : System.Web.UI.Page
     {
+        public void Limpiar()
+        {
+            txtNombre.Text = "";
+            txtDireccion.Text = "";
+        }
+        public void Mensaje(string Mensaje, string Nivel, string ErrorOpcional)
+        {
+            Limpiar();
+            lblMensaje.Visible = true;
+            lblMensaje.CssClass = "alert alert-" + Nivel;
+            lblMensaje.Text = Mensaje + " " + ErrorOpcional;
+        }
         public void AgregarSucursal()
         {
+
             SucursalesDb xSucursal = new SucursalesDb();
             string Conexion = Properties.Settings.Default.Conexion;
-            int Municipio = int.Parse(ddMunicipio.SelectedValue.ToString());
+            string Nombre, Direccion;
             try
             {
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) && string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    Mensaje("Los campos Nombre y Dirección, no pueden ir en blanco.", "danger", "");
+                }
+                else
+                {
+                    Nombre = txtNombre.Text;
+                    Direccion = txtDireccion.Text;
+                    int Municipio = int.Parse(ddMunicipio.SelectedValue.ToString());
+                    xSucursal.NuevaSucursal(Nombre, Municipio, Direccion, Conexion);
+                    Mensaje("Sucursal agregada correctamente.", "success", "");
+                }
 
-                xSucursal.NuevaSucursal(txtNombre.Text, Municipio, txtDireccion.Text, Conexion);
-                lblAlert.Visible = true;
-                lblAlert.CssClass = "alert alert-success";
-                lblAlert.Text = "Sucursal agregada correctamente.";
-                txtNombre.Text = "";
-                txtDireccion.Text = "";
             }
             catch(Exception ex)
             {
-                lblAlert.Visible = true;
-                lblAlert.CssClass = "alert alert-danger";
-                lblAlert.Text = "Error: " + ex.Message;
+                Mensaje("Error:", "danger", ex.Message);
             }
             
         }
@@ -45,7 +62,7 @@ namespace EleganciaWeb
             }
             catch(Exception ex)
             {
-                lblAlert.Text = ex.Message;
+                Mensaje("Error:", "danger", ex.Message);
             }
         }
 
@@ -62,7 +79,7 @@ namespace EleganciaWeb
             }
             catch (Exception ex)
             {
-                lblAlert.Text = ex.Message;
+                Mensaje("Error:", "danger", ex.Message);
             }
 
         }

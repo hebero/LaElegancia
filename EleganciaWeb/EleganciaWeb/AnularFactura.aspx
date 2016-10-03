@@ -21,17 +21,19 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
-                            <h4>Factura</h4>
+                            <h4>Datos de la Factura</h4>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Solo números." ValidationExpression="^\d+$" ControlToValidate="txtNumero" CssClass="col-lg-offset-5 alert-warning"></asp:RegularExpressionValidator>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Numero requerido." ControlToValidate="txtNumero" CssClass="alert-warning"></asp:RequiredFieldValidator>
                         </div>
                         <div class="form-inline">
                             <div class="form-group">
-                                <label for="ddSerie" class="col-md-4 control-label">Serie:</label>
+                                <label for="ddSerie" class="col-md-2 control-label">Serie:</label>
                                 <div class="col-md-4">
                                     <asp:DropDownList ID="ddSerie" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="txtNumero" class="col-md-4 control-label">Serie:</label>
+                                <label for="txtNumero" class="col-md-2 control-label">Numero:</label>
                                 <div class="col-md-4">
                                     <asp:TextBox ID="txtNumero" runat="server" CssClass="form-control"></asp:TextBox>
                                 </div>
@@ -56,7 +58,11 @@
                                 <asp:Label ID="lblNit" runat="server" Text="--" CssClass="col-md-2"></asp:Label>
                             </div>
                             <div class="form-group">
-                                <asp:LinkButton ID="btnPreAnular" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">Cancelar</asp:LinkButton>
+                                <label for="lblEstado" class="col-md-2">Estado: </label>
+                                <asp:Label ID="lblEstado" runat="server" Text="--" CssClass="col-md-2"></asp:Label>
+                                <asp:LinkButton ID="btnPreAnular" runat="server" data-toggle="modal" data-target="#pnlAddClassModal" Visible="false" CssClass="btn btn-primary col-lg-offset-9">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Anular
+                                </asp:LinkButton>
                             </div>
                         </div>
                     </li>

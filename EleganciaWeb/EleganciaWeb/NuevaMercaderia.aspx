@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-12 col-md-offset-0">
             <div class="panel panel-default">
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -24,25 +24,25 @@
                         </div>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="DropDownSucursal">Sucursal: </label>
+                                <label class="col-md-1 control-label" for="DropDownSucursal">Sucursal: </label>
                                 <div class="col-md-10">
                                     <asp:DropDownList ID="DropDownSucursal" runat="server" CssClass="form-control"></asp:DropDownList>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="txtDate">Fecha: </label>
+                                <label class="col-md-1 control-label" for="txtDate">Fecha: </label>
                                 <div class="col-md-10">
                                     <asp:TextBox ID="txtDate" runat="server" CssClass="Date txtDate" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="txtDescripcion">Descripción: </label>
+                                <label class="col-md-1 control-label" for="txtDescripcion">Descripción: </label>
                                 <div class="col-md-10">
                                     <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" ClientIDMode="Static" ReadOnly="False" Font-Bold="False" Rows="4"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
+                                <div class="col-md-offset-9 col-md-2">
                                     <asp:Button ID="btnSucursal" runat="server" Text="Agregar" CssClass="btn btn-primary" OnClick="btnSucursal_Click" />
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtDaniado" class="sr-only">Cantidad de productos: </label>
-                                <asp:TextBox ID="txtDaniado" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="Producto dañado" Text="0"></asp:TextBox>
+                                <asp:TextBox ID="txtDaniado" runat="server" CssClass="form-control" ClientIDMode="Static" placeholder="Producto dañado" Text=""></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="txtPrecio" class="sr-only">Cantidad de productos: </label>
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                    <asp:TextBox ID="txtVencimiento" runat="server" CssClass="Date txtDate" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
+                                    <asp:TextBox ID="txtVencimiento" runat="server" CssClass="txtDate" ClientIDMode="Static" ReadOnly="True"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <asp:LinkButton ID="btnAgregarProducto" runat="server" CssClass="btn btn-default" OnClick="btnAgregarProducto_Click" data-toggle="tooltip" title="Agregar mercadería." data-placement="top">
@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-2">
             <asp:Label ID="lblMensaje" runat="server" Text="" Visible="false" ClientIDMode="Static"></asp:Label>
         </div>
     </div>

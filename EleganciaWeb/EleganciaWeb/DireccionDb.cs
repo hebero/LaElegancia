@@ -31,7 +31,7 @@ namespace EleganciaWeb
 
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }
@@ -62,7 +62,7 @@ namespace EleganciaWeb
 
 
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
                 throw ex;
             }

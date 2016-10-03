@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %>- La Elegancia</title>
+    <title>La Elegancia</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -55,18 +55,10 @@
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
                         <li><a runat="server" href="~/NuevoCliente.aspx">Añadir cliente</a></li>
+                        <li><a runat="server" href="~/ProductoNuevo.aspx">Añadir artículos</a></li>
+                        <li><a runat="server" href="~/NuevaSucursal.aspx">Añadir sucursal</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Artículos <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a runat="server" href="~/ProductoNuevo.aspx">Añadir artículos</a></li>
-                                <li><a runat="server" href="#">Listado de artículos X</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Boletas <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boletas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaMercaderia.aspx">Boleta de entrada</a></li>
@@ -74,24 +66,22 @@
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Sucursales <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a runat="server" href="~/NuevaSucursal.aspx">Nueva sucursal</a></li>
-                                <li><a runat="server" href="#">Sucursales existentes X</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Facturas <span class="caret"></span>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/NuevaFactura.aspx">Nueva factura</a></li>
                                 <li><a runat="server" href="~/CancelarFactura.aspx">Cancelar factura</a></li>
                                 <li><a runat="server" href="~/AnularFactura.aspx">Anular factura</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a runat="server" href="~/ListadoFacturas.aspx">Listado de facturas X</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a runat="server" href="~/ArticulosPorBodega.aspx">Existencia por sucursal</a></li>
+                                <li><a runat="server" href="~/ReporteBoletas.aspx">Entradas por fechas</a></li>
+                                <li><a runat="server" href="~/EntradasSalidasMercaderia.aspx">Entradas y salidas mercadería</a></li>
+                                <li><a runat="server" href="~/ReporteFactura.aspx">Reporte de facturas</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -108,30 +98,26 @@
         </div>
 
     </form>
-<script src="Scripts/jquery-ui-1.12.0.js"></script>
-    <script> 
+    <script src="Scripts/jquery-ui-1.12.0.js"></script>
+    <script>
         $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
+            //Configuracion de los selectores de fechas
             $(".txtDate").datepicker({ dateFormat: 'dd/mm/yy' });
             $(".txtDate").datepicker();
-            //$("#txtDate").datepicker('setDate', new Date());
             $(".txtDate").addClass('form-control').after();
-            //$("#txtDate").prop('disabled', true).after();
-            //$("#Date").datepicker("option", "disable", false);
+            $('.txtDate').prop('readonly', true).after();
+            //Configuracion de las alertas
             $("#lblAlert").fadeOut(10000, "swing");
             $("#lblMensaje").fadeOut(10000, "swing");
 
             $("#pnlAddClassModal").parent().appendTo($("form:first"));
-
+            //Configuracion de los selectores de fechas
             $(".txtFecha").datepicker({ dateFormat: 'yy-mm-dd' });
             $(".txtFecha").datepicker();
-            //$("#txtDate").datepicker('setDate', new Date());
             $(".txtFecha").addClass('form-control').after();
-
-
-             
+            $('.txtFecha').prop('readonly', true).after();
         });
-       
+
     </script>
 </body>
 </html>

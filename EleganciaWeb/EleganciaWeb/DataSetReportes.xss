@@ -7,9 +7,9 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="109" ViewPortY="-55" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:ProductosExistencia" ZOrder="4" X="119" Y="16" Height="143" Width="182" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
-    <Shape ID="DesignTable:EntradasMercaderia" ZOrder="3" X="360" Y="20" Height="86" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="82" />
+    <Shape ID="DesignTable:EntradasMercaderia" ZOrder="3" X="524" Y="1" Height="105" Width="181" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="101" />
     <Shape ID="DesignTable:EntradaSalida" ZOrder="2" X="220" Y="242" Height="200" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
-    <Shape ID="DesignTable:FacturaDetalle" ZOrder="1" X="412" Y="149" Height="353" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="349" />
+    <Shape ID="DesignTable:FacturaDetalle" ZOrder="1" X="765" Y="25" Height="351" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="347" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
