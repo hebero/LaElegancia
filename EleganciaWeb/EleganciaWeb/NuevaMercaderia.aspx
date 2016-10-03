@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="col-md-1 control-label" for="txtDescripcion">Descripción: </label>
                                 <div class="col-md-10">
-                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" ClientIDMode="Static" ReadOnly="False" Font-Bold="False" Rows="4"></asp:TextBox>
+                                    <asp:TextBox ID="txtDescripcion" runat="server" CssClass="form-control" ClientIDMode="Static" TextMode="MultiLine" Font-Bold="False" Rows="4"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
