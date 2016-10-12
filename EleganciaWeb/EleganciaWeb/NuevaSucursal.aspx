@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-lg-12">
-            <h2>Nueva sucurusale</h2>
+            <h2>Nueva sucursal</h2>
         </div>
     </div>
     <div class="row">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label" for="txtDireccion">Direccion: </label>
+                    <label class="col-sm-2 control-label" for="txtDireccion">Dirección: </label>
                     <div class="col-sm-8">
                         <asp:TextBox ID="txtDireccion" runat="server" CssClass="form-control"></asp:TextBox>
                     </div>

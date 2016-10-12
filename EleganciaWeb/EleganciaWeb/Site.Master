@@ -79,8 +79,8 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a runat="server" href="~/ArticulosPorBodega.aspx">Existencia por sucursal</a></li>
-                                <li><a runat="server" href="~/ReporteBoletas.aspx">Entradas por fechas</a></li>
-                                <li><a runat="server" href="~/EntradasSalidasMercaderia.aspx">Entradas y salidas mercadería</a></li>
+                                <li><a runat="server" href="~/ReporteBoletas.aspx">Entradas y salidas de mercadería</a></li>
+                                <li><a runat="server" href="~/EntradasSalidasMercaderia.aspx">Entradas por fecha</a></li>
                                 <li><a runat="server" href="~/ReporteFactura.aspx">Reporte de facturas</a></li>
                             </ul>
                         </li>

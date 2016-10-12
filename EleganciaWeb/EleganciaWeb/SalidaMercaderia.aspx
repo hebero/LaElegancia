@@ -50,7 +50,7 @@
                         </div>
                     </li>
                     <li class="list-group-item">
-                        <h4>Agregar prouctos</h4>
+                        <h4>Agregar productos</h4>
                         <div class="form-inline">
                             <div class="form-group">
                                 <label for="txtSku" class="sr-only">Código del producto: </label>

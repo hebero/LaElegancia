@@ -32,7 +32,7 @@ namespace EleganciaWeb
             ddSerie.DataTextField = "Serie";
             ddSerie.DataValueField = "Serie";
             ddSerie.DataBind();
-            ddSerie.Items.Insert(0, "Sleccione serie");
+            ddSerie.Items.Insert(0, "Seleccione serie");
 
         }
         public void CrearFactura()
