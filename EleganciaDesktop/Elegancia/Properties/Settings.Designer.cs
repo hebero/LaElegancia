@@ -27,9 +27,9 @@ namespace Elegancia.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost/EleganciaWebService/Productos.asmx")]
-        public string Elegancia_EleganciaWebService_Productos {
+        public string Elegancia_EleganciaService_Productos {
             get {
-                return ((string)(this["Elegancia_EleganciaWebService_Productos"]));
+                return ((string)(this["Elegancia_EleganciaService_Productos"]));
             }
         }
     }

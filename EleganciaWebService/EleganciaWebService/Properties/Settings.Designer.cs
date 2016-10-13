@@ -26,7 +26,8 @@ namespace EleganciaWebService.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-95OAQET;Initial Catalog=Elegancia;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-95OAQET;Initial Catalog=Elegancia;Persist Security Info=True;" +
+            "User ID=NETNET;Password=123456")]
         public string Conexion {
             get {
                 return ((string)(this["Conexion"]));

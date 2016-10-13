@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Elegancia.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Elegancia_EleganciaWebService_Productos" Type="(Web Service URL)" Scope="Application">
+    <Setting Name="Elegancia_EleganciaService_Productos" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://localhost/EleganciaWebService/Productos.asmx</Value>
     </Setting>
   </Settings>

@@ -10,19 +10,22 @@ using System.Windows.Forms;
 
 namespace Elegancia
 {
-    public partial class Form1 : Form
+    public partial class ExistenciaNombre : Form
     {
-        public Form1()
+        public ExistenciaNombre()
         {
             InitializeComponent();
         }
 
+        private void lblArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            bool bSku = false;
-            int sku = 0;
-            bSku = int.TryParse(textBox1.Text, out sku);
-            if (bSku == false)
+            string Nombre = textBox1.Text;
+            if  (Nombre == null)
             {
                 MessageBox.Show("El sku es numérico.", "Alerta", MessageBoxButtons.OK);
             }
@@ -31,19 +34,13 @@ namespace Elegancia
                 try
                 {
                     EleganciaService.Productos xListado = new EleganciaService.Productos();
-                    dataGridView1.DataSource = xListado.Existencia(int.Parse(textBox1.Text)).Tables[0];
+                    dataGridView1.DataSource = xListado.ExistenciaNombre(textBox1.Text).Tables[0];
                 }
-                catch(Exception  ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error: "+ ex.Message, "Alerta", MessageBoxButtons.OK);
+                    MessageBox.Show("Error: " + ex.Message, "Alerta", MessageBoxButtons.OK);
                 }
             }
-            
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,15 +58,10 @@ namespace Elegancia
                     lblTest.Text = "Conexión no disponible.";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 lblTest.Text = "Error: " + ex.Message;
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

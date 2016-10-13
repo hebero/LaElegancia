@@ -33,6 +33,44 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="ExistenciaNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExistenciaNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExistenciaNombreResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sucursales">
+        <s:complexType />
+      </s:element>
+      <s:element name="SucursalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SucursalesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -47,6 +85,18 @@
   <wsdl:message name="ExistenciaSoapOut">
     <wsdl:part name="parameters" element="tns:ExistenciaResponse" />
   </wsdl:message>
+  <wsdl:message name="ExistenciaNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:ExistenciaNombre" />
+  </wsdl:message>
+  <wsdl:message name="ExistenciaNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:ExistenciaNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="SucursalesSoapIn">
+    <wsdl:part name="parameters" element="tns:Sucursales" />
+  </wsdl:message>
+  <wsdl:message name="SucursalesSoapOut">
+    <wsdl:part name="parameters" element="tns:SucursalesResponse" />
+  </wsdl:message>
   <wsdl:portType name="ProductosSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -55,6 +105,14 @@
     <wsdl:operation name="Existencia">
       <wsdl:input message="tns:ExistenciaSoapIn" />
       <wsdl:output message="tns:ExistenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExistenciaNombre">
+      <wsdl:input message="tns:ExistenciaNombreSoapIn" />
+      <wsdl:output message="tns:ExistenciaNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sucursales">
+      <wsdl:input message="tns:SucursalesSoapIn" />
+      <wsdl:output message="tns:SucursalesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ProductosSoap" type="tns:ProductosSoap">
@@ -77,6 +135,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="ExistenciaNombre">
+      <soap:operation soapAction="http://tempuri.org/ExistenciaNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sucursales">
+      <soap:operation soapAction="http://tempuri.org/Sucursales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ProductosSoap12" type="tns:ProductosSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -91,6 +167,24 @@
     </wsdl:operation>
     <wsdl:operation name="Existencia">
       <soap12:operation soapAction="http://tempuri.org/Existencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExistenciaNombre">
+      <soap12:operation soapAction="http://tempuri.org/ExistenciaNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sucursales">
+      <soap12:operation soapAction="http://tempuri.org/Sucursales" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

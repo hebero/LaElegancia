@@ -40,5 +40,37 @@ namespace EleganciaWebService
             }
             return Listado;
         }
+        [WebMethod]
+        public DataSet ExistenciaNombre(string Nombre)
+        {
+            string Conexion = Properties.Settings.Default.Conexion;
+            ProductosDb xListado = new ProductosDb();
+            DataSet Listado = new DataSet();
+            try
+            {
+                Listado = xListado.ExistenciaNombre(Nombre, Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Listado;
+        }
+        [WebMethod]
+        public DataSet Sucursales()
+        {
+            string Conexion = Properties.Settings.Default.Conexion;
+            ProductosDb xListado = new ProductosDb();
+            DataSet Listado = new DataSet();
+            try
+            {
+                Listado = xListado.Sucursales(Conexion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Listado;
+        }
     }
 }

@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Elegancia.EleganciaWebService {
+namespace Elegancia.EleganciaService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -34,11 +34,15 @@ namespace Elegancia.EleganciaWebService {
         
         private System.Threading.SendOrPostCallback ExistenciaOperationCompleted;
         
+        private System.Threading.SendOrPostCallback ExistenciaNombreOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SucursalesOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
         public Productos() {
-            this.Url = global::Elegancia.Properties.Settings.Default.Elegancia_EleganciaWebService_Productos;
+            this.Url = global::Elegancia.Properties.Settings.Default.Elegancia_EleganciaService_Productos;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -77,6 +81,12 @@ namespace Elegancia.EleganciaWebService {
         
         /// <remarks/>
         public event ExistenciaCompletedEventHandler ExistenciaCompleted;
+        
+        /// <remarks/>
+        public event ExistenciaNombreCompletedEventHandler ExistenciaNombreCompleted;
+        
+        /// <remarks/>
+        public event SucursalesCompletedEventHandler SucursalesCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -131,6 +141,62 @@ namespace Elegancia.EleganciaWebService {
             if ((this.ExistenciaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.ExistenciaCompleted(this, new ExistenciaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ExistenciaNombre", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet ExistenciaNombre(string Nombre) {
+            object[] results = this.Invoke("ExistenciaNombre", new object[] {
+                        Nombre});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ExistenciaNombreAsync(string Nombre) {
+            this.ExistenciaNombreAsync(Nombre, null);
+        }
+        
+        /// <remarks/>
+        public void ExistenciaNombreAsync(string Nombre, object userState) {
+            if ((this.ExistenciaNombreOperationCompleted == null)) {
+                this.ExistenciaNombreOperationCompleted = new System.Threading.SendOrPostCallback(this.OnExistenciaNombreOperationCompleted);
+            }
+            this.InvokeAsync("ExistenciaNombre", new object[] {
+                        Nombre}, this.ExistenciaNombreOperationCompleted, userState);
+        }
+        
+        private void OnExistenciaNombreOperationCompleted(object arg) {
+            if ((this.ExistenciaNombreCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ExistenciaNombreCompleted(this, new ExistenciaNombreCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sucursales", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Sucursales() {
+            object[] results = this.Invoke("Sucursales", new object[0]);
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SucursalesAsync() {
+            this.SucursalesAsync(null);
+        }
+        
+        /// <remarks/>
+        public void SucursalesAsync(object userState) {
+            if ((this.SucursalesOperationCompleted == null)) {
+                this.SucursalesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSucursalesOperationCompleted);
+            }
+            this.InvokeAsync("Sucursales", new object[0], this.SucursalesOperationCompleted, userState);
+        }
+        
+        private void OnSucursalesOperationCompleted(object arg) {
+            if ((this.SucursalesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SucursalesCompleted(this, new SucursalesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -192,6 +258,58 @@ namespace Elegancia.EleganciaWebService {
         private object[] results;
         
         internal ExistenciaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1590.0")]
+    public delegate void ExistenciaNombreCompletedEventHandler(object sender, ExistenciaNombreCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1590.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ExistenciaNombreCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ExistenciaNombreCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1590.0")]
+    public delegate void SucursalesCompletedEventHandler(object sender, SucursalesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1590.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SucursalesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SucursalesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
